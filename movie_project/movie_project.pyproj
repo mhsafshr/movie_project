@@ -82,10 +82,14 @@
     <Folder Include="app\static\app\scripts\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
+    <Folder Include="Media\imagegallery\" />
+    <Folder Include="Media\songs\" />
+    <Folder Include="Media\trailers\" />
     <Folder Include="Movie\" />
     <Folder Include="Movie\templates\" />
     <Folder Include="Movie\templates\Movie\" />
     <Folder Include="movie_project\" />
+    <Folder Include="Media\" />
     <Folder Include="Recommendations\" />
     <Folder Include="Recommendations\migrations\" />
     <Folder Include="Recommendations\templates\" />
@@ -96,7 +100,9 @@
     <Folder Include="Users\templates\Users\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Movie\templates\home.html" />
     <Content Include="Movie\templates\Movie\index.html" />
+    <Content Include="Movie\templates\search.html" />
     <Content Include="Recommendations\templates\Recommendations\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
