@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dune: Part One - Movie Details</title>
+    <link rel="stylesheet" href="../style/index.css">
+</head>
+<body class="movie-detail-page">
+    <!-- Header -->
+    <header class="site-header" style="z-index: 99; width: 100%;">
+        <div class="container">
+            <a href="../index.html" class="logo">MOVA</a>
+
+            <nav class="nav">
+                <a href="./all-journal.html" class="nav__link">journal</a>
+                <a href="./all-movies.html" class="nav__link">movies</a>
+                <a href="#" class="nav__link">movie rec</a>
+            </nav>
+            
+            <div class="header-search">
+                <form name="search">
+                    <input
+                        type="text"
+                        class="header-search__input"
+                        placeholder="Search movies..."
+                        autocomplete="off"
+                    />
+                </form>
+                <div class="header-search__icon">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 50 50"
+                        width="28"
+                        height="28"
+                    >
+                        <path
+                            fill="#E7CF56"
+                            d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"
+                        />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="auth" id="auth-container">
+                <a href="./login.html" class="auth__link" style="color: white;">Log in</a>
+                <span class="auth__separator">|</span>
+                <a href="./signup.html" class="auth__link" style="color: white;">sign up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Movie Detail Hero -->
+    <section class="movie-detail">
+        <div class="movie-detail__overlay"></div>
+        <div class="movie-detail__background">
+            <img src="../images/dune_production-7.jpg" alt="Dune: Part One" class="movie-detail__bg-image">
+        </div>
+        
+        <div class="movie-detail__content">
+            <h1 class="movie-detail__title">Dune: Part One</h1>
+            
+            <div class="movie-detail__meta">
+                <span class="movie-detail__year">.2021</span>
+                <span class="movie-detail__rating-badge">.PG-13</span>
+                <span class="movie-detail__duration">.2h 35m</span>
+                <div class="movie-detail__rating">
+                    <span class="movie-detail__star">⭐</span>
+                    <span class="movie-detail__score">8.0/10</span>
+                </div>
+                <button class="movie-detail__add-btn">Add To List</button>
+            </div>
+
+            <p class="movie-detail__description">
+                Paul Atreides arrives on Arrakis after his father accepts the stewardship of the dangerous planet. However, chaos ensues after a betrayal as forces clash to control melange, a precious resource.
+            </p>
+
+            <table class="movie-detail__credits">
+                <tbody>
+                    <tr class="movie-detail__credit-row">
+                        <td class="movie-detail__credit-label">Director</td>
+                        <td class="movie-detail__credit-value">Denis Villeneuve</td>
+                    </tr>
+                    <tr class="movie-detail__credit-row">
+                        <td class="movie-detail__credit-label">Writers</td>
+                        <td class="movie-detail__credit-value">John Spaihts, Denis Villeneuve, Eric Roth</td>
+                    </tr>
+                    <tr class="movie-detail__credit-row">
+                        <td class="movie-detail__credit-label">Stars</td>
+                        <td class="movie-detail__credit-value">Timothée Chalamet, Rebecca Ferguson, Zendaya</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="movie-detail__tags">
+                <span class="movie-detail__tag">Action Epic</span>
+                <span class="movie-detail__tag">Adventure Epic</span>
+                <span class="movie-detail__tag">Desert Adventure</span>
+                <span class="movie-detail__tag">Action Epic</span>
+                <span class="movie-detail__tag">Epic</span>
+                <span class="movie-detail__tag">Sci-Fi</span>
+                <span class="movie-detail__tag">Drama</span>
+                <span class="movie-detail__tag">Future</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>

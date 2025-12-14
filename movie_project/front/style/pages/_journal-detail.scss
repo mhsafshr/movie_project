@@ -1,0 +1,116 @@
+@import "../utils/variables";
+@import "../utils/fonts";
+@import "../utils/mixins";
+
+.journal-detail {
+  padding: 25px 0;
+  background: #0A0A0A;
+  color: #EAEAEA;
+  min-height: 100vh;
+
+  .container {
+    margin: 0 auto;
+    padding: 0 95px;
+
+    @media (max-width: 1200px) { padding: 0 70px; }
+    @media (max-width: 992px)  { padding: 0 50px; }
+    @media (max-width: 768px)  { padding: 0 30px; }
+  }
+
+  .journal-article {
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 32px;
+    padding: 4rem 5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+    @media (max-width: 768px) {
+      padding: 3rem 2.5rem;
+      border-radius: 24px;
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+    }
+
+    &__logo {
+      width: 120px;
+      height: auto;
+      filter: drop-shadow(0 4px 20px rgba(0,0,0,0.8));
+
+      @media (max-width: 768px) {
+        width: 100px;
+      }
+    }
+
+    &__title {
+      font-family: 'Comic Neue', cursive;
+      font-size: clamp(2rem, 3vw, 4rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+      line-height: 1.2;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+
+    &__content {
+      font-size: 1.2rem;
+      line-height: 1.9;
+      color: #cccccc;
+
+      p, ul, h2, h3, h4 {
+        margin-bottom: 1.8rem;
+      }
+
+      h2 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: #E7CF56;
+        margin: 3rem 0 1.5rem;
+      }
+
+      h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin: 2.5rem 0 1rem;
+      }
+
+      h4 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #E7CF56;
+        margin: 2rem 0 1rem;
+      }
+
+      ul {
+        padding-left: 2rem;
+        margin: 1.5rem 0;
+
+        li {
+          margin-bottom: 0.8rem;
+          position: relative;
+
+          &::marker {
+            color: #E7CF56;
+          }
+        }
+      }
+
+      strong {
+        color: #E7CF56;
+      }
+    }
+  }
+}
