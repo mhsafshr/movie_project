@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="./style/index.css" />
+  </head>
+  <style>
+    body {
+      font-family: "Inter", sans-serif !important;
+      font-weight: 400;
+    }
+  </style>
+  <body style="padding: 0 45px;">
+    <!-- Header Section -->
+    <header class="site-header">
+      <div class="container">
+        <a href="index.html" class="logo">MOVA</a>
+
+        <nav class="nav">
+          <a href="./pages/all-journal.html" class="nav__link">journal</a>
+          <a href="./pages/all-movies.html" class="nav__link">movies</a>
+          <a href="#" class="nav__link">movie rec</a>
+        </nav>
+        <div class="header-search">
+          <form name="search">
+            <input
+              type="text"
+              class="header-search__input"
+              placeholder="Search movies..."
+              autocomplete="off"
+            />
+          </form>
+          <div class="header-search__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 50 50"
+              width="28"
+              height="28"
+            >
+              <path
+                fill="#E7CF56"
+                d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="auth" id="auth-container">
+          <a href="./pages/login.html" class="auth__link">Log in</a>
+          <span class="auth__separator">|</span>
+          <a href="./pages/signup.html" class="auth__link">sign up</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="./images/hero.png" alt="Hero" class="hero__image" />
+
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <div class="hero__bottom-row">
+          <h2 class="hero__title">
+            From the movies you loved<br />
+            to the ones waiting for you
+          </h2>
+          <a href="#" class="hero__btn">let's go!</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Movies Section -->
+    <section class="top-movies">
+      <div class="container">
+        <h2 class="top-movies__title">
+          <a href="#top-movies" class="top-movies__link">TOP MOVIES ></a>
+        </h2>
+
+        <div class="top-movies__grid">
+          <a href="./pages/movie-detail.html" class="movie-card">
+            <div class="movie-card__image">
+              <img src="./images/interstellar.jpg" alt="Interstellar" />
+            </div>
+            <div class="movie-card__info">
+              <h3 class="movie-card__name">Interstellar</h3>
+              <p class="movie-card__year">2014</p>
+            </div>
+          </a>
+
+          <a href="./pages/movie-detail.html" class="movie-card">
+            <div class="movie-card__image">
+              <img src="./images/inception.jpg" alt="Inception" />
+            </div>
+            <div class="movie-card__info">
+              <h3 class="movie-card__name">Inception</h3>
+              <p class="movie-card__year">2010</p>
+            </div>
+          </a>
+
+          <a href="./pages/movie-detail.html" class="movie-card">
+            <div class="movie-card__image">
+              <img src="./images/Dune part 2.jpg" alt="Dune" />
+            </div>
+            <div class="movie-card__info">
+              <h3 class="movie-card__name">Dune: Part Two</h3>
+              <p class="movie-card__year">2024</p>
+            </div>
+          </a>
+
+          <a href="./pages/movie-detail.html" class="movie-card">
+            <div class="movie-card__image">
+              <img src="./images/Oppenheimer.jpg" alt="Oppenheimer" />
+            </div>
+            <div class="movie-card__info">
+              <h3 class="movie-card__name">Oppenheimer</h3>
+              <p class="movie-card__year">2023</p>
+            </div>
+          </a>
+
+          <a href="./pages/movie-detail.html" class="movie-card">
+            <div class="movie-card__image">
+              <img src="./images/the matrix .jpg" alt="The Matrix" />
+            </div>
+            <div class="movie-card__info">
+              <h3 class="movie-card__name">The Matrix</h3>
+              <p class="movie-card__year">1999</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommended Banner Section -->
+    <section class="recommend-banner">
+      <div class="recommend-banner__robot">
+        <img src="./images/robo-banner.png" alt="Robot" />
+      </div>
+
+      <div class="recommend-banner__content">
+        <h2 class="recommend-banner__title">
+          Stop Arguing Over What to Watch!
+        </h2>
+        <p class="recommend-banner__subtitle">
+          Let Our Algorithm Be the Judge.
+        </p>
+        <a href="#" class="recommend-banner__btn">recommend me a movie</a>
+      </div>
+    </section>
+
+    <!-- Journals Section -->
+    <section class="journals">
+      <div class="container">
+        <h2 class="journals__title">
+          <a href="./pages/all-journal.html" class="journals__link">Journals ></a>
+        </h2>
+        <div class="journals__grid">
+          <article class="journals-card-featured">
+            <img
+              src="./images/marvel-journal.jpg"
+              alt="Marvel"
+              class="journals-card-featured__image"
+            />
+            <div class="journals-card-featured__content">
+              <h5 class="journals-card-featured__title">
+                The Ultimate MCU Timeline Guide
+              </h5>
+              <p class="journals-card-featured__excerpt">
+                Navigating the Marvel Cinematic Universe can feel overwhelming.
+                With over 30 movies and multiple TV series, where do you even
+                begin? Do you watch in release order or chronological order?
+                What about the Disney+ shows? We asked these same questions,
+                which is why we created the most comprehensive MCU timeline
+                guide available. Our team of Marvel experts has mapped out every
+                connection, every post-credit scene, and every character arc
+                across phases 1-5 and beyond...
+              </p>
+              <a href="/pages/journal-detail.html" class="journals__btn">Continue Reading</a>
+            </div>
+          </article>
+        </div>
+        <div class="journals__grid">
+          <article class="journals-card-featured">
+            <img
+              src="./images/top250-jounal.webp"
+              alt="Marvel"
+              class="journals-card-featured__image"
+            />
+            <div class="journals-card-featured__content">
+              <h5 class="journals-card-featured__title">The IMBD Top 250</h5>
+              <p class="journals-card-featured__excerpt">
+                The IMDb Top 250 is more than a ranking — it’s a snapshot of the
+                films audiences consider the most impactful and unforgettable.
+                In my article, I explore why these movies stand out, from
+                classics that shaped cinema to modern titles that redefined
+                storytelling. Covering every genre and era, each film earns its
+                place through strong direction, memorable characters, and
+                lasting influence. Whether you love dramas, sci-fi, thrillers,
+                or timeless favorites, the Top 250 offers one of the most
+                reliable guides to the best movies ever made — and this piece
+                breaks down what keeps the list so iconic...
+              </p>
+              <a href="./pages/journal-detail.html" class="journals__btn">Continue Reading</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </sectio=n>
+
+    <!-- Website Recommendation Section -->
+    <section class="recommend-cta">
+      <div class="recommend-cta__content">
+        <h2 class="recommend-cta__title">FIND THE BEST MOVIE FOR TONIGHT</h2>
+        <p class="recommend-cta__subtitle">
+          Get Personalized Movie<br />Recommendations in Seconds
+        </p>
+        <a href="#" class="recommend-cta__btn">EXPLORE MORE...</a>
+      </div>
+
+      <div class="recommend-cta__images">
+        <img src="./images/poster2.jpg" alt="Dune" class="recommend-cta__img" />
+        <img
+          src="./images/poster1.jpg"
+          alt="Poor Things"
+          class="recommend-cta__img"
+        />
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__section site-footer__section--watch">
+          <h3 class="site-footer__title">What to watch</h3>
+          <ul class="site-footer__nav">
+            <li>
+              <a href="#" class="site-footer__link">movie recommendation</a>
+            </li>
+            <li><a href="#" class="site-footer__link">movie roulette</a></li>
+            <li><a href="#" class="site-footer__link">Top movies</a></li>
+            <li><a href="./pages/all-journal.html" class="site-footer__link">Journal</a></li>
+          </ul>
+        </div>
+
+        <div class="site-footer__section site-footer__section--about">
+          <h3 class="site-footer__title">What is 'MOVA'?</h3>
+          <p class="site-footer__about">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
+            purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
+            rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed
+            euismod nisi porta lorem mollis.
+          </p>
+        </div>
+        <div
+          class="site-footer__section site-footer__section--auth site-footer__auth"
+        >
+          <div class="site-footer__logo-placeholder">
+            <img src="./images/logo.jpg" alt="LOGO" class="site-footer__logo" />
+          </div>
+          <a href="./pages/login.html" class="site-footer__auth-link">Log in</a>
+          <a href="./pages/signup.html" class="site-footer__auth-link"
+            >sign up</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="./js/main.js"></script>
+</html>

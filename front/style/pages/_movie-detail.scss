@@ -1,0 +1,215 @@
+// style/pages/_movie-detail.scss
+@import "../utils/variables";
+@import "../utils/mixins";
+
+// Make header transparent only on movie detail page
+.movie-detail-page .site-header {
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.movie-detail {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 7rem 5rem 0;
+  overflow: hidden;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to right,
+      rgba(10, 10, 10, 0.98) 0%,
+      rgba(10, 10, 10, 0.92) 40%,
+      rgba(10, 10, 10, 0.7) 60%,
+      transparent 100%
+    );
+    z-index: 1;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  &__bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    max-width: 70%;
+  }
+
+  &__title {
+    font-family: "Comic Neue", cursive;
+    font-size: clamp(4rem, 8vw, 5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__year,
+  &__rating-badge,
+  &__duration {
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  &__star {
+    font-size: 1.6rem;
+  }
+
+  &__score {
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  &__description {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.9);
+    // margin-bottom: 3rem;
+    max-width: 650px;
+  }
+
+  &__credits {
+    width: 100%;
+    max-width: 650px;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+
+  &__credit-row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__credit-label {
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 1.2rem 2rem 1.2rem 0;
+    vertical-align: top;
+    width: 120px;
+  }
+
+  &__credit-value {
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.5;
+    padding: 1.2rem 0;
+  }
+
+  &__tags {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    // margin-bottom: 3rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 650px;
+    padding-bottom: 0.5rem;
+
+    // Custom scrollbar styling
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    // Firefox scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 0.6rem 1.6rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &__add-btn {
+    @include accent-button;
+    font-size: 1.4rem;
+    padding: 1.2rem 3.2rem;
+  }
+}

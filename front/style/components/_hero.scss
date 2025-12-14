@@ -1,0 +1,108 @@
+// style/components/_hero.scss
+.hero {
+  position: relative;
+  height: 87vh;
+  min-height: 550px;
+  overflow: hidden;
+  color: #ffffff;
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center center;
+    z-index: 0;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0.5) 0%,
+        rgba(10, 10, 10, 0.1) 50%,
+        rgba(10, 10, 10, 0.5) 100%
+      ),
+      linear-gradient(
+        to right,
+        rgba(10, 10, 10, 0.5) 0%,
+        rgba(10, 10, 10, 0.1) 50%,
+        rgba(10, 10, 10, 0.5) 100%
+      ),
+      linear-gradient(
+        to left,
+        rgba(10, 10, 10, 0.5) 0%,
+        rgba(10, 10, 10, 0.1) 50%,
+        rgba(10, 10, 10, 0.5) 100%
+      );
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 95px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 7rem;
+
+    @media (max-width: 1400px) {
+      padding: 0 70px;
+    }
+    @media (max-width: 992px) {
+      padding: 0 50px;
+    }
+    @media (max-width: 768px) {
+      padding: 0 30px;
+      text-align: center;
+      padding-bottom: 5rem;
+    }
+  }
+
+  &__bottom-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 4rem;
+    flex-wrap: wrap; 
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+  }
+
+  &__title {
+    font-family: "Comic Neue", cursive;
+    font-size: clamp(3rem, 8vw, 4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    text-shadow: 0 6px 30px rgba(0, 0, 0, 0.9);
+    flex: 1;
+    min-width: 300px;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
+
+  &__btn {
+    align-self: flex-end;
+    margin-bottom: 0.5rem; // دقیقاً هم‌سطح با آخرین خط متن
+
+    @include glass-button;
+
+    @media (max-width: 768px) {
+      align-self: center;
+    }
+  }
+}

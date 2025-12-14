@@ -1,0 +1,40 @@
+@import "utils/mixins";
+@import "utils/variables";
+@import "utils/fonts";
+
+@import "components/header";
+@import "components/hero";
+@import "components/top-movies";
+@import "components/recommend-banner.scss";
+@import "components/journals";
+@import "components/recommend-cta";
+@import "components/footer";
+
+@import "pages/signup";
+@import "pages/login";
+@import "pages/profile";
+@import "pages/all-movies";
+@import "pages/movie-detail";
+@import "pages/journal-detail";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  // margin: 0 45px;
+  // padding: 0 45px;
+  font-family: "Comic Neue", "Comic Sans MS", cursive, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  background: #0a0a0a;
+  color: #eaeaea;
+  direction: ltr;
+}

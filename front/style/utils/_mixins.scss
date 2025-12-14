@@ -1,0 +1,134 @@
+@mixin glass-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2.4rem;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: "Comic Neue", cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+
+@mixin journal-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2.2rem;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.4s ease;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #E7CF56;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: #E7CF56;
+    color: #0A0A0A;
+    border-color: #E7CF56;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(231, 207, 86, 0.35);
+
+    &::before {
+      transform: scale(1.4);
+    }
+  }
+}
+
+@mixin header-link {
+  /* Use a sensible default size; switch to the clamp variant if you want responsive scaling */
+  font-size: 2rem;
+  /* Responsive alternative:
+     font-size: clamp(2.8rem, 6vw, 5rem);
+  */
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+// style/utils/_mixins.scss — اضافه کن
+@mixin glass-input {
+  width: 100%;
+  padding: 1.1rem 1.6rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  outline: none;
+  transition: all 0.4s ease;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &:focus {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@mixin accent-button {
+  padding: 1rem 2.8rem;
+  background: linear-gradient(135deg, #8B1A1A, #A52A2A);
+  border: none;
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 30px rgba(139, 26, 26, 0.4);
+
+  &:hover {
+    background: linear-gradient(135deg, #A52A2A, #C41E3A);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(197, 30, 58, 0.5);
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
+}

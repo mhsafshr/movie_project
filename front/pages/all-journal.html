@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Journals - MOVA</title>
+    <link rel="stylesheet" href="../style/index.css">
+</head>
+<body style="padding: 0 45px;">
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo">MOVA</a>
+
+            <nav class="nav">
+                <a href="./all-journal.html" class="nav__link">journal</a>
+                <a href="./all-movies.html" class="nav__link">movies</a>
+                <a href="#" class="nav__link">movie rec</a>
+            </nav>
+            
+            <div class="header-search">
+                <form name="search">
+                    <input
+                        type="text"
+                        class="header-search__input"
+                        placeholder="Search movies..."
+                        autocomplete="off"
+                    />
+                </form>
+                <div class="header-search__icon">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 50 50"
+                        width="28"
+                        height="28"
+                    >
+                        <path
+                            fill="#E7CF56"
+                            d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"
+                        />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="auth" id="auth-container">
+                <a href="./login.html" class="auth__link">Log in</a>
+                <span class="auth__separator">|</span>
+                <a href="./signup.html" class="auth__link">sign up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- All Journals Section -->
+    <section class="all-journals">
+        <div class="container">
+            <!-- Journal Article 1 -->
+            <article class="journals-card-featured">
+                <img
+                    src="../images/marvel-journal.jpg"
+                    alt="Marvel"
+                    class="journals-card-featured__image"
+                />
+                <div class="journals-card-featured__content">
+                    <h5 class="journals-card-featured__title">
+                        The Ultimate MCU Timeline Guide
+                    </h5>
+                    <p class="journals-card-featured__subtitle">
+                        From Iron Man to The Marvels
+                    </p>
+                    <p class="journals-card-featured__excerpt">
+                        Navigating the Marvel Cinematic Universe can feel overwhelming. 
+                        With over 30 movies and multiple TV series, where do you even 
+                        begin? Do you watch in release order or chronological order? 
+                        What about the Disney+ shows? We asked these same questions, 
+                        which is why we created the most comprehensive MCU timeline 
+                        guide available. Our team of Marvel experts has mapped out every 
+                        connection, every post-credit scene, and every character arc 
+                        across phases 1-5 and beyond...
+                    </p>
+                    <a href="journal-detail.html" class="journals__btn">Continue Reading</a>
+                </div>
+            </article>
+
+            <!-- Journal Article 2 -->
+            <article class="journals-card-featured">
+                <img
+                    src="../images/top250-jounal.webp"
+                    alt="Top 250 Movies"
+                    class="journals-card-featured__image"
+                />
+                <div class="journals-card-featured__content">
+                    <h5 class="journals-card-featured__title">
+                        The Best 250 Movies
+                    </h5>
+                    <p class="journals-card-featured__subtitle">
+                        Lorem ipsum dolor
+                    </p>
+                    <p class="journals-card-featured__excerpt">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+                        enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+                        nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <a href="journal-detail.html" class="journals__btn">Continue Reading</a>
+                </div>
+            </article>
+
+            <!-- Journal Article 3 (Example) -->
+            <article class="journals-card-featured">
+                <img
+                    src="../images/marvel-journal.jpg"
+                    alt="Sample Article"
+                    class="journals-card-featured__image"
+                />
+                <div class="journals-card-featured__content">
+                    <h5 class="journals-card-featured__title">
+                        Another Amazing Article Title
+                    </h5>
+                    <p class="journals-card-featured__subtitle">
+                        Subtitle goes here
+                    </p>
+                    <p class="journals-card-featured__excerpt">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+                        enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+                        nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <a href="journal-detail.html" class="journals__btn">Continue Reading</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="site-footer__section site-footer__section--watch">
+                <h3 class="site-footer__title">What to watch</h3>
+                <ul class="site-footer__nav">
+                    <li>
+                        <a href="#" class="site-footer__link">movie recommendation</a>
+                    </li>
+                    <li><a href="#" class="site-footer__link">movie roulette</a></li>
+                    <li><a href="#" class="site-footer__link">Top movies</a></li>
+                    <li><a href="./all-journal.html" class="site-footer__link">Journal</a></li>
+                </ul>
+            </div>
+
+            <div class="site-footer__section site-footer__section--about">
+                <h3 class="site-footer__title">What is 'MOVA'?</h3>
+                <p class="site-footer__about">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
+                    purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
+                    rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed
+                    euismod nisi porta lorem mollis.
+                </p>
+            </div>
+            
+            <div class="site-footer__section site-footer__section--auth site-footer__auth">
+                <div class="site-footer__logo-placeholder">
+                    <img src="../images/logo.jpg" alt="LOGO" class="site-footer__logo" />
+                </div>
+                <a href="./login.html" class="site-footer__auth-link">Log in</a>
+                <a href="./signup.html" class="site-footer__auth-link">sign up</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>

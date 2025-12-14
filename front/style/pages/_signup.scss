@@ -1,0 +1,136 @@
+@import "../utils/mixins";
+@import "../utils/variables";
+@import "../utils/fonts";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.signup-page {
+  .signup-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 1200px) { padding: 100px 70px; }
+    @media (max-width: 992px)  { padding: 80px 50px; }
+    @media (max-width: 768px)  { padding: 60px 30px; }
+  }
+
+  .signup-box {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    background: url("../images/Darth-Maul-Clone-Wars.png") center/cover no-repeat;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+      z-index: 1;
+    }
+
+    &__content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 50%;
+
+      @media (max-width: 768px) {
+        padding: 3rem;
+        max-width: 100%;
+      }
+    }
+
+    &__title {
+      font-size: clamp(3.5rem, 8vw, 3rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 3rem 0;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    &__row {
+      display: flex;
+      gap: 1rem;
+
+      .signup-box__input { flex: 1; }
+    }
+
+    &__input { @include glass-input; }
+
+    &__btn {
+      @include accent-button;
+      align-self: center;
+      margin-top: 1rem;
+    }
+
+    &__footer {
+      text-align: center;
+      margin-top: 1.5rem;
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        opacity: 0.9;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+          opacity: 1;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  /* Back to Home SVG */
+  .back-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(231, 207, 86, 0.15);
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: #771f23;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background: rgba(231, 207, 86, 0.3);
+    }
+  }
+}

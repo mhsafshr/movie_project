@@ -1,0 +1,105 @@
+@import "../utils/variables";
+@import "../utils/fonts";
+@import "../utils/mixins";
+
+.all-movies {
+  padding: 1.5rem 0;
+  background: #0A0A0A;
+
+  .container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 95px;
+
+    @media (max-width: 1400px) { padding: 0 70px; }
+    @media (max-width: 992px)  { padding: 0 50px; }
+    @media (max-width: 768px)  { padding: 0 30px; }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem;
+
+    @media (max-width: 1400px) { gap: 2.5rem; }
+    @media (max-width: 1200px) { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 992px)  { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 768px)  { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 480px)  { grid-template-columns: 1fr; }
+  }
+}
+.movie-card {
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  aspect-ratio: 2 / 3;
+
+  &:hover {
+    transform: translateY(-16px) scale(1.03);
+  }
+
+  &:hover .movie-card__image::after {
+    opacity: 1;
+  }
+
+  &:hover .movie-card__name,
+  &:hover .movie-card__year {
+    color: #E7CF56;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, transparent 45%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem 1.8rem;
+    z-index: 2;
+  }
+
+  &__name {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.4rem 0;
+    transition: color 0.4s ease;
+  }
+
+  &__year {
+    font-size: 1.15rem;
+    color: #bbbbbb;
+    margin: 0;
+    transition: color 0.4s ease;
+  }
+}
