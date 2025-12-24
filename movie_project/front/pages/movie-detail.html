@@ -1,153 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dune: Part One - Movie Details</title>
-    <link rel="stylesheet" href="../style/index.css">
-</head>
-<body class="movie-detail-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Details - MOVA</title>
+    <link rel="stylesheet" href="../style/index.css" />
+  </head>
+  <body class="movie-detail-page">
     <!-- Header -->
-    <header class="site-header" style="z-index: 99; width: 100%;">
-        <div class="container">
-            <a href="../index.html" class="logo">MOVA</a>
+    <header class="site-header" style="z-index: 99; width: 100%">
+      <div class="container">
+        <a href="../index.html" class="logo">MOVA</a>
 
-            <nav class="nav">
-                <a href="./all-journal.html" class="nav__link">journal</a>
-                <a href="./all-movies.html" class="nav__link">movies</a>
-                <a href="#" class="nav__link">movie rec</a>
-            </nav>
-            
-            <div class="header-search">
-                <form name="search">
-                    <input
-                        type="text"
-                        class="header-search__input"
-                        placeholder="Search movies..."
-                        autocomplete="off"
-                    />
-                </form>
-                <div class="header-search__icon">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 50 50"
-                        width="28"
-                        height="28"
-                    >
-                        <path
-                            fill="#E7CF56"
-                            d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"
-                        />
-                    </svg>
-                </div>
-            </div>
+        <nav class="nav">
+          <a href="./all-journal.html" class="nav__link">journal</a>
+          <a href="./all-movies.html" class="nav__link">movies</a>
+          <a href="#" class="nav__link">movie rec</a>
+        </nav>
 
-            <div class="auth" id="auth-container">
-                <a href="./login.html" class="auth__link" style="color: white;">Log in</a>
-                <span class="auth__separator">|</span>
-                <a href="./signup.html" class="auth__link" style="color: white;">sign up</a>
-            </div>
+        <div class="header-search">
+          <form name="search">
+            <input
+              type="text"
+              class="header-search__input"
+              placeholder="Search movies..."
+              autocomplete="off"
+            />
+          </form>
+          <div class="header-search__icon" aria-label="Search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 50 50"
+              width="28"
+              height="28"
+            >
+              <path
+                fill="#E7CF56"
+                d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"
+              />
+            </svg>
+          </div>
         </div>
+
+        <div class="auth" id="auth-container">
+          <a href="./login.html" class="auth__link" style="color: white">Log in</a>
+          <span class="auth__separator">|</span>
+          <a href="./signup.html" class="auth__link" style="color: white">sign up</a>
+        </div>
+      </div>
     </header>
 
     <!-- Movie Detail Hero -->
     <section class="movie-detail">
-        <div class="movie-detail__overlay"></div>
-        <div class="movie-detail__background">
-            <img src="../images/dune_production-7.jpg" alt="Dune: Part One" class="movie-detail__bg-image">
+      <div class="movie-detail__overlay"></div>
+      <div class="movie-detail__background">
+        <img
+          src="../images/dune_production-7.jpg"
+          alt=""
+          class="movie-detail__bg-image"
+          id="bg-image"
+        />
+      </div>
+
+      <div class="movie-detail__content">
+        <h1 class="movie-detail__title" id="movie-title">Movie Title</h1>
+
+        <div class="movie-detail__meta">
+          <span class="movie-detail__year" id="movie-year">.Year</span>
+          <span class="movie-detail__rating-badge" id="movie-rating-badge">.PG-13</span>
+          <span class="movie-detail__duration" id="movie-duration">.Duration</span>
+          <div class="movie-detail__rating">
+            <span class="movie-detail__star">⭐</span>
+            <span class="movie-detail__score" id="movie-score">0.0/10</span>
+          </div>
+          <button class="movie-detail__add-btn" aria-label="Add to favorites">
+            <svg
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              class="favorite-icon"
+            >
+              <path
+                class="favorite-icon__path"
+                fill="transparent"
+                d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
+                stroke="#fff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <div class="movie-detail__rating-popup">
+            <span class="rating-option">0</span>
+            <span class="rating-option">1</span>
+            <span class="rating-option">2</span>
+            <span class="rating-option">3</span>
+            <span class="rating-option">4</span>
+            <span class="rating-option">5</span>
+            <span class="rating-option">6</span>
+            <span class="rating-option">7</span>
+            <span class="rating-option">8</span>
+            <span class="rating-option">9</span>
+            <span class="rating-option">10</span>
+          </div>
         </div>
-        
-        <div class="movie-detail__content">
-            <h1 class="movie-detail__title">Dune: Part One</h1>
-            
-            <div class="movie-detail__meta">
-                <span class="movie-detail__year">.2021</span>
-                <span class="movie-detail__rating-badge">.PG-13</span>
-                <span class="movie-detail__duration">.2h 35m</span>
-                <div class="movie-detail__rating">
-                    <span class="movie-detail__star">⭐</span>
-                    <span class="movie-detail__score">8.0/10</span>
-                </div>
-                <button class="movie-detail__add-btn">
-                    <svg class="add-btn__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 5v14M5 12h14"></path>
-                    </svg>
-                    Add To List
-                </button>
 
-                <!-- Rating slider container that will appear when button is clicked -->
-                <div class="rating-slider-container" style="display: none;">
-                    <div class="rating-display">
-                        <span class="rating-value">0</span>/10
-                    </div>
-                    <input type="range" min="0" max="10" step="1" value="0" class="rating-slider">
-                </div>
-            </div>
+        <p class="movie-detail__description" id="movie-description">
+          Movie description will appear here.
+        </p>
 
-            <p class="movie-detail__description">
-                Paul Atreides arrives on Arrakis after his father accepts the stewardship of the dangerous planet. However, chaos ensues after a betrayal as forces clash to control melange, a precious resource.
-            </p>
+        <table class="movie-detail__credits">
+          <tbody>
+            <tr class="movie-detail__credit-row">
+              <td class="movie-detail__credit-label">Director</td>
+              <td class="movie-detail__credit-value" id="movie-director">Director Name</td>
+            </tr>
+            <tr class="movie-detail__credit-row">
+              <td class="movie-detail__credit-label">Writers</td>
+              <td class="movie-detail__credit-value" id="movie-writers">Writers</td>
+            </tr>
+            <tr class="movie-detail__credit-row">
+              <td class="movie-detail__credit-label">Stars</td>
+              <td class="movie-detail__credit-value" id="movie-stars">Stars</td>
+            </tr>
+          </tbody>
+        </table>
 
-            <table class="movie-detail__credits">
-                <tbody>
-                    <tr class="movie-detail__credit-row">
-                        <td class="movie-detail__credit-label">Director</td>
-                        <td class="movie-detail__credit-value">Denis Villeneuve</td>
-                    </tr>
-                    <tr class="movie-detail__credit-row">
-                        <td class="movie-detail__credit-label">Writers</td>
-                        <td class="movie-detail__credit-value">John Spaihts, Denis Villeneuve, Eric Roth</td>
-                    </tr>
-                    <tr class="movie-detail__credit-row">
-                        <td class="movie-detail__credit-label">Stars</td>
-                        <td class="movie-detail__credit-value">Timothée Chalamet, Rebecca Ferguson, Zendaya</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="movie-detail__tags">
-                <span class="movie-detail__tag">Action Epic</span>
-                <span class="movie-detail__tag">Adventure Epic</span>
-                <span class="movie-detail__tag">Desert Adventure</span>
-                <span class="movie-detail__tag">Action Epic</span>
-                <span class="movie-detail__tag">Epic</span>
-                <span class="movie-detail__tag">Sci-Fi</span>
-                <span class="movie-detail__tag">Drama</span>
-                <span class="movie-detail__tag">Future</span>
-            </div>
+        <div class="movie-detail__tags" id="movie-tags">
+          <!-- Tags will be dynamically added -->
         </div>
+      </div>
     </section>
-
-    <script src="../js/auth.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const addButton = document.querySelector('.movie-detail__add-btn');
-            const addBtnIcon = document.querySelector('.add-btn__icon');
-            const ratingSliderContainer = document.querySelector('.rating-slider-container');
-            const ratingSlider = document.querySelector('.rating-slider');
-            const ratingValue = document.querySelector('.rating-value');
-
-            // Toggle functionality when add button is clicked
-            addButton.addEventListener('click', function(e) {
-                // Prevent default button behavior if needed
-                e.preventDefault();
-
-                // Add active class to change SVG color
-                addButton.classList.toggle('active');
-
-                // Show/hide rating slider container
-                if (ratingSliderContainer.style.display === 'none' || ratingSliderContainer.style.display === '') {
-                    ratingSliderContainer.style.display = 'flex';
-                } else {
-                    ratingSliderContainer.style.display = 'none';
-                }
-            });
-
-            // Update rating value when slider changes
-            ratingSlider.addEventListener('input', function() {
-                ratingValue.textContent = this.value;
-            });
-        });
-    </script>
-</body>
+    <script src="../js/main.js"></script>
+  </body>
 </html>

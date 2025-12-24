@@ -3,16 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>MOVA - Discover Movies and Journals</title>
     <link rel="stylesheet" href="./style/index.css" />
   </head>
-  <style>
-    body {
-      font-family: "Inter", sans-serif !important;
-      font-weight: 400;
-    }
-  </style>
-  <body style="padding: 0 45px;">
+  <body style="padding: 0 45px">
     <!-- Header Section -->
     <header class="site-header">
       <div class="container">
@@ -32,7 +26,7 @@
               autocomplete="off"
             />
           </form>
-          <div class="header-search__icon">
+          <div class="header-search__icon" aria-label="Search">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 50 50"
@@ -57,7 +51,11 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <img src="./images/hero.png" alt="Hero" class="hero__image" />
+      <img
+        src="./images/hero.png"
+        alt="Hero background featuring cinematic atmosphere"
+        class="hero__image"
+      />
 
       <div class="hero__overlay"></div>
 
@@ -75,14 +73,13 @@
     <!-- Top Movies Section -->
     <section class="top-movies">
       <div class="container">
-        <h2 class="top-movies__title">
-          <a href="#top-movies" class="top-movies__link">TOP MOVIES ></a>
-        </h2>
-
-        <div class="top-movies__grid">
-          <a href="./pages/movie-detail.html" class="movie-card">
+        <div class="all-movies__grid">
+          <a href="./pages/movie-detail.html?id=interstellar" class="movie-card">
             <div class="movie-card__image">
-              <img src="./images/interstellar.jpg" alt="Interstellar" />
+              <img
+                src="../images/interstellar.jpg"
+                alt="Interstellar movie poster"
+              />
             </div>
             <div class="movie-card__info">
               <h3 class="movie-card__name">Interstellar</h3>
@@ -90,9 +87,9 @@
             </div>
           </a>
 
-          <a href="./pages/movie-detail.html" class="movie-card">
+          <a href="./pages/movie-detail.html?id=inception" class="movie-card">
             <div class="movie-card__image">
-              <img src="./images/inception.jpg" alt="Inception" />
+              <img src="../images/inception.jpg" alt="Inception movie poster" />
             </div>
             <div class="movie-card__info">
               <h3 class="movie-card__name">Inception</h3>
@@ -100,9 +97,12 @@
             </div>
           </a>
 
-          <a href="./pages/movie-detail.html" class="movie-card">
+          <a href="./pages/movie-detail.html?id=dune-part-2" class="movie-card">
             <div class="movie-card__image">
-              <img src="./images/Dune part 2.jpg" alt="Dune" />
+              <img
+                src="../images/Dune part 2.jpg"
+                alt="Dune: Part Two movie poster"
+              />
             </div>
             <div class="movie-card__info">
               <h3 class="movie-card__name">Dune: Part Two</h3>
@@ -110,9 +110,12 @@
             </div>
           </a>
 
-          <a href="./pages/movie-detail.html" class="movie-card">
+          <a href="./pages/movie-detail.html?id=oppenheimer" class="movie-card">
             <div class="movie-card__image">
-              <img src="./images/Oppenheimer.jpg" alt="Oppenheimer" />
+              <img
+                src="../images/oppenheimer.jpg"
+                alt="oppenheimer movie poster"
+              />
             </div>
             <div class="movie-card__info">
               <h3 class="movie-card__name">Oppenheimer</h3>
@@ -120,9 +123,12 @@
             </div>
           </a>
 
-          <a href="./pages/movie-detail.html" class="movie-card">
+          <a href="./pages/movie-detail.html?id=the-matrix" class="movie-card">
             <div class="movie-card__image">
-              <img src="./images/the matrix .jpg" alt="The Matrix" />
+              <img
+                src="../images/the matrix .jpg"
+                alt="The Matrix movie poster"
+              />
             </div>
             <div class="movie-card__info">
               <h3 class="movie-card__name">The Matrix</h3>
@@ -136,7 +142,7 @@
     <!-- Recommended Banner Section -->
     <section class="recommend-banner">
       <div class="recommend-banner__robot">
-        <img src="./images/robo-banner.png" alt="Robot" />
+        <img src="./images/robo-banner.png" alt="Friendly robot illustration" />
       </div>
 
       <div class="recommend-banner__content">
@@ -154,13 +160,15 @@
     <section class="journals">
       <div class="container">
         <h2 class="journals__title">
-          <a href="./pages/all-journal.html" class="journals__link">Journals ></a>
+          <a href="./pages/all-journal.html" class="journals__link"
+            >Journals ></a
+          >
         </h2>
         <div class="journals__grid">
           <article class="journals-card-featured">
             <img
               src="./images/marvel-journal.jpg"
-              alt="Marvel"
+              alt="Marvel Cinematic Universe timeline guide cover"
               class="journals-card-featured__image"
             />
             <div class="journals-card-featured__content">
@@ -177,7 +185,9 @@
                 connection, every post-credit scene, and every character arc
                 across phases 1-5 and beyond...
               </p>
-              <a href="/pages/journal-detail.html" class="journals__btn">Continue Reading</a>
+              <a href="./pages/journal-detail.html" class="journals__btn"
+                >Continue Reading</a
+              >
             </div>
           </article>
         </div>
@@ -185,11 +195,11 @@
           <article class="journals-card-featured">
             <img
               src="./images/top250-jounal.webp"
-              alt="Marvel"
+              alt="IMDb Top 250 movies list cover"
               class="journals-card-featured__image"
             />
             <div class="journals-card-featured__content">
-              <h5 class="journals-card-featured__title">The IMBD Top 250</h5>
+              <h5 class="journals-card-featured__title">The IMDb Top 250</h5>
               <p class="journals-card-featured__excerpt">
                 The IMDb Top 250 is more than a ranking — it’s a snapshot of the
                 films audiences consider the most impactful and unforgettable.
@@ -202,12 +212,14 @@
                 reliable guides to the best movies ever made — and this piece
                 breaks down what keeps the list so iconic...
               </p>
-              <a href="./pages/journal-detail.html" class="journals__btn">Continue Reading</a>
+              <a href="./pages/journal-detail.html" class="journals__btn"
+                >Continue Reading</a
+              >
             </div>
           </article>
         </div>
       </div>
-    </sectio=n>
+    </section>
 
     <!-- Website Recommendation Section -->
     <section class="recommend-cta">
@@ -220,10 +232,14 @@
       </div>
 
       <div class="recommend-cta__images">
-        <img src="./images/poster2.jpg" alt="Dune" class="recommend-cta__img" />
+        <img
+          src="./images/poster2.jpg"
+          alt="Dune movie poster"
+          class="recommend-cta__img"
+        />
         <img
           src="./images/poster1.jpg"
-          alt="Poor Things"
+          alt="Poor Things movie poster"
           class="recommend-cta__img"
         />
       </div>
@@ -240,7 +256,11 @@
             </li>
             <li><a href="#" class="site-footer__link">movie roulette</a></li>
             <li><a href="#" class="site-footer__link">Top movies</a></li>
-            <li><a href="./pages/all-journal.html" class="site-footer__link">Journal</a></li>
+            <li>
+              <a href="./pages/all-journal.html" class="site-footer__link"
+                >Journal</a
+              >
+            </li>
           </ul>
         </div>
 
@@ -258,7 +278,11 @@
           class="site-footer__section site-footer__section--auth site-footer__auth"
         >
           <div class="site-footer__logo-placeholder">
-            <img src="./images/logo.jpg" alt="LOGO" class="site-footer__logo" />
+            <img
+              src="./images/logo.jpg"
+              alt="MOVA logo"
+              class="site-footer__logo"
+            />
           </div>
           <a href="./pages/login.html" class="site-footer__auth-link">Log in</a>
           <a href="./pages/signup.html" class="site-footer__auth-link"

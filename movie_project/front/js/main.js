@@ -52,3 +52,154 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const favBtn = document.querySelector(".movie-detail__add-btn");
+  const popup = document.querySelector(".movie-detail__rating-popup");
+  const ratingOptions = document.querySelectorAll(".rating-option");
+
+  if (!favBtn || !popup) return;
+
+  favBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const isFavorite = favBtn.classList.toggle("is-favorite");
+
+    if (isFavorite) {
+      // show popup when liked
+      popup.classList.add("is-visible");
+    } else {
+      // UNLIKED → remove rating
+      popup.classList.remove("is-visible");
+      ratingOptions.forEach(o => o.classList.remove("is-selected"));
+      console.log("Rating removed");
+    }
+  });
+
+  // Select rating (only one)
+  ratingOptions.forEach(option => {
+    option.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      ratingOptions.forEach(o => o.classList.remove("is-selected"));
+      option.classList.add("is-selected");
+
+      const rating = option.textContent;
+      console.log("User rating:", rating);
+    });
+  });
+
+  // Close popup when clicking outside
+  document.addEventListener("click", () => {
+    popup.classList.remove("is-visible");
+  });
+});
+
+
+// کد جدید برای مدیریت دینامیک صفحه جزئیات فیلم (movie-detail.html)
+(function() {
+  // اگر صفحه فعلی movie-detail-page نیست، کد اجرا نشود
+  if (!document.querySelector('.movie-detail-page')) {
+    return;
+  }
+
+  // داده‌های فیلم‌ها
+  const moviesData = {
+    "interstellar": {
+      title: "Interstellar",
+      year: "2014",
+      ratingBadge: "PG-13",
+      duration: "2h 49m",
+      score: "8.7",
+      description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+      director: "Christopher Nolan",
+      writers: "Jonathan Nolan, Christopher Nolan",
+      stars: "Matthew McConaughey, Anne Hathaway, Jessica Chastain",
+      bgImage: "../images/interstellar-bg.jpg", // تصویر پس‌زمینه مناسب اضافه کنید
+      tags: ["Sci-Fi", "Adventure", "Drama", "Space", "Time Travel"]
+    },
+    "inception": {
+      title: "Inception",
+      year: "2010",
+      ratingBadge: "PG-13",
+      duration: "2h 28m",
+      score: "8.8",
+      description: "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea.",
+      director: "Christopher Nolan",
+      writers: "Christopher Nolan",
+      stars: "Leonardo DiCaprio, Marion Cotillard, Elliot Page",
+      bgImage: "../images/inception-bg.jpg",
+      tags: ["Sci-Fi", "Action", "Thriller", "Dream", "Heist"]
+    },
+    "dune-part-2": {
+      title: "Dune: Part Two",
+      year: "2024",
+      ratingBadge: "PG-13",
+      duration: "2h 46m",
+      score: "8.8",
+      description: "Paul Atreides unites with the Fremen people on the planet Arrakis to wage war against House Harkonnen.",
+      director: "Denis Villeneuve",
+      writers: "Denis Villeneuve, Jon Spaihts",
+      stars: "Timothée Chalamet, Zendaya, Rebecca Ferguson",
+      bgImage: "../images/dune-part-2-bg.jpg",
+      tags: ["Sci-Fi", "Adventure", "Epic", "Drama", "Desert"]
+    },
+    "oppenheimer": {
+      title: "Oppenheimer",
+      year: "2023",
+      ratingBadge: "R",
+      duration: "3h",
+      score: "8.4",
+      description: "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
+      director: "Christopher Nolan",
+      writers: "Christopher Nolan",
+      stars: "Cillian Murphy, Emily Blunt, Matt Damon",
+      bgImage: "../images/oppenheimer-bg.jpg",
+      tags: ["Biography", "Drama", "History", "War", "Science"]
+    },
+    "the-matrix": {
+      title: "The Matrix",
+      year: "1999",
+      ratingBadge: "R",
+      duration: "2h 16m",
+      score: "8.7",
+      description: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+      director: "Lana Wachowski, Lilly Wachowski",
+      writers: "Lana Wachowski, Lilly Wachowski",
+      stars: "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
+      bgImage: "../images/matrix-bg.jpg",
+      tags: ["Sci-Fi", "Action", "Cyberpunk", "Philosophy", "Virtual Reality"]
+    }
+  };
+
+  // خواندن پارامتر id از URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const movieId = urlParams.get('id') || 'dune-part-2'; // پیش‌فرض Dune
+
+  // اعمال داده‌ها
+  if (moviesData[movieId]) {
+    const movie = moviesData[movieId];
+    document.title = `${movie.title} - MOVA`;
+    document.getElementById('movie-title').textContent = movie.title;
+    document.getElementById('movie-year').textContent = `.${movie.year}`;
+    document.getElementById('movie-rating-badge').textContent = `.${movie.ratingBadge}`;
+    document.getElementById('movie-duration').textContent = `.${movie.duration}`;
+    document.getElementById('movie-score').textContent = `${movie.score}/10`;
+    document.getElementById('movie-description').textContent = movie.description;
+    document.getElementById('movie-director').textContent = movie.director;
+    document.getElementById('movie-writers').textContent = movie.writers;
+    document.getElementById('movie-stars').textContent = movie.stars;
+    document.getElementById('bg-image').src = movie.bgImage;
+    document.getElementById('bg-image').alt = `${movie.title} background`;
+
+    // تگ‌ها
+    const tagsContainer = document.getElementById('movie-tags');
+    tagsContainer.innerHTML = '';
+    movie.tags.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'movie-detail__tag';
+      span.textContent = tag;
+      tagsContainer.appendChild(span);
+    });
+  }
+})();

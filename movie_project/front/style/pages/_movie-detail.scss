@@ -209,78 +209,59 @@
 
   &__add-btn {
     @include accent-button;
-    font-size: 1.4rem;
-    padding: 1.2rem 3.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
+    padding: 1rem 1.2rem;
+    border-radius: 100%;
+  }
+  &__add-btn {
+    .favorite-icon__path {
+      fill: transparent;
+      transition: fill 0.25s ease;
+    }
 
-    &.active {
-      .add-btn__icon {
-        stroke: #ffffff;
+    &.is-favorite {
+      .favorite-icon__path {
         fill: #ffffff;
       }
     }
   }
-
-  .add-btn__icon {
-    transition: all 0.3s ease;
-    width: 16px;
-    height: 16px;
+  &__meta {
+    position: relative; // anchor for popup
   }
 
-  .rating-slider-container {
+  &__rating-popup {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    display: none;
+    gap: 0.6rem;
+    padding: 0.8rem 1rem;
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+  }
+
+  &__rating-popup.is-visible {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-left: 1rem;
+  }
 
-    .rating-display {
-      font-family: "Inter", sans-serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #ffffff;
-      min-width: 50px;
-      text-align: center;
+  .rating-option {
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
-
-    .rating-slider {
-      -webkit-appearance: none;
-      width: 150px;
-      height: 6px;
-      border-radius: 3px;
-      background: rgba(255, 255, 255, 0.3);
-      outline: none;
-
-      &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: #E7CF56;
-        cursor: pointer;
-        transition: all 0.3s ease;
-
-        &:hover {
-          transform: scale(1.2);
-          background: #ffffff;
-        }
-      }
-
-      &::-moz-range-thumb {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: #E7CF56;
-        cursor: pointer;
-        border: none;
-        transition: all 0.3s ease;
-
-        &:hover {
-          transform: scale(1.2);
-          background: #ffffff;
-        }
-      }
+    &.is-selected {
+      background: #ffffff;
+      color: #000000;
+      font-weight: 600;
     }
   }
 }

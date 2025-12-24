@@ -2210,8 +2210,8 @@ body {
   cursor: pointer;
   transition: all 0.4s ease;
   box-shadow: 0 8px 30px rgba(139, 26, 26, 0.4);
-  font-size: 1.4rem;
-  padding: 1.2rem 3.2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 100%;
 }
 .movie-detail__add-btn:hover {
   background: linear-gradient(135deg, #A52A2A, #C41E3A);
@@ -2220,6 +2220,50 @@ body {
 }
 .movie-detail__add-btn:active {
   transform: translateY(-2px);
+}
+.movie-detail__add-btn .favorite-icon__path {
+  fill: transparent;
+  transition: fill 0.25s ease;
+}
+.movie-detail__add-btn.is-favorite .favorite-icon__path {
+  fill: #ffffff;
+}
+.movie-detail__meta {
+  position: relative;
+}
+.movie-detail__rating-popup {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  display: none;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  background: rgba(10, 10, 10, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 10;
+}
+.movie-detail__rating-popup.is-visible {
+  display: flex;
+}
+.movie-detail .rating-option {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.movie-detail .rating-option:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.movie-detail .rating-option.is-selected {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
 }
 
 @font-face {
