@@ -68,7 +68,20 @@
                     <span class="movie-detail__star">⭐</span>
                     <span class="movie-detail__score">8.0/10</span>
                 </div>
-                <button class="movie-detail__add-btn">Add To List</button>
+                <button class="movie-detail__add-btn">
+                    <svg class="add-btn__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5v14M5 12h14"></path>
+                    </svg>
+                    Add To List
+                </button>
+
+                <!-- Rating slider container that will appear when button is clicked -->
+                <div class="rating-slider-container" style="display: none;">
+                    <div class="rating-display">
+                        <span class="rating-value">0</span>/10
+                    </div>
+                    <input type="range" min="0" max="10" step="1" value="0" class="rating-slider">
+                </div>
             </div>
 
             <p class="movie-detail__description">
@@ -106,5 +119,35 @@
     </section>
 
     <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addButton = document.querySelector('.movie-detail__add-btn');
+            const addBtnIcon = document.querySelector('.add-btn__icon');
+            const ratingSliderContainer = document.querySelector('.rating-slider-container');
+            const ratingSlider = document.querySelector('.rating-slider');
+            const ratingValue = document.querySelector('.rating-value');
+
+            // Toggle functionality when add button is clicked
+            addButton.addEventListener('click', function(e) {
+                // Prevent default button behavior if needed
+                e.preventDefault();
+
+                // Add active class to change SVG color
+                addButton.classList.toggle('active');
+
+                // Show/hide rating slider container
+                if (ratingSliderContainer.style.display === 'none' || ratingSliderContainer.style.display === '') {
+                    ratingSliderContainer.style.display = 'flex';
+                } else {
+                    ratingSliderContainer.style.display = 'none';
+                }
+            });
+
+            // Update rating value when slider changes
+            ratingSlider.addEventListener('input', function() {
+                ratingValue.textContent = this.value;
+            });
+        });
+    </script>
 </body>
 </html>

@@ -211,5 +211,76 @@
     @include accent-button;
     font-size: 1.4rem;
     padding: 1.2rem 3.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    &.active {
+      .add-btn__icon {
+        stroke: #ffffff;
+        fill: #ffffff;
+      }
+    }
+  }
+
+  .add-btn__icon {
+    transition: all 0.3s ease;
+    width: 16px;
+    height: 16px;
+  }
+
+  .rating-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+
+    .rating-display {
+      font-family: "Inter", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ffffff;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .rating-slider {
+      -webkit-appearance: none;
+      width: 150px;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.3);
+      outline: none;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #E7CF56;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.2);
+          background: #ffffff;
+        }
+      }
+
+      &::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #E7CF56;
+        cursor: pointer;
+        border: none;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.2);
+          background: #ffffff;
+        }
+      }
+    }
   }
 }
