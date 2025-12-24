@@ -30,7 +30,6 @@
   }
 }
 
-
 @mixin journal-button {
   display: inline-flex;
   align-items: center;
@@ -41,25 +40,25 @@
   border: 1.5px solid rgba(255, 255, 255, 0.2);
   border-radius: 50px;
   color: #ffffff;
-  font-family: 'Comic Neue', cursive;
+  font-family: "Comic Neue", cursive;
   font-size: 1.25rem;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.4s ease;
 
   &::before {
-    content: '';
+    content: "";
     width: 8px;
     height: 8px;
-    background: #E7CF56;
+    background: #e7cf56;
     border-radius: 50%;
     transition: transform 0.3s ease;
   }
 
   &:hover {
-    background: #E7CF56;
-    color: #0A0A0A;
-    border-color: #E7CF56;
+    background: #e7cf56;
+    color: #0a0a0a;
+    border-color: #e7cf56;
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(231, 207, 86, 0.35);
 
@@ -91,7 +90,7 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1.5px solid rgba(255, 255, 255, 0.18);
   border-radius: 50px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
   color: #ffffff;
@@ -111,11 +110,11 @@
 
 @mixin accent-button {
   padding: 1rem 2.8rem;
-  background: linear-gradient(135deg, #8B1A1A, #A52A2A);
+  background: linear-gradient(135deg, #8b1a1a, #a52a2a);
   border: none;
   border-radius: 50px;
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   cursor: pointer;
@@ -123,12 +122,51 @@
   box-shadow: 0 8px 30px rgba(139, 26, 26, 0.4);
 
   &:hover {
-    background: linear-gradient(135deg, #A52A2A, #C41E3A);
+    background: linear-gradient(135deg, #a52a2a, #c41e3a);
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(197, 30, 58, 0.5);
   }
 
   &:active {
     transform: translateY(-2px);
+  }
+}
+
+@mixin accent-button {
+  padding: 1rem 2.8rem;
+  background: linear-gradient(135deg, #8b1a1a, #a52a2a);
+  border: none;
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 30px rgba(139, 26, 26, 0.4);
+
+  &:hover {
+    background: linear-gradient(135deg, #a52a2a, #c41e3a);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(197, 30, 58, 0.5);
+  }
+}
+
+@mixin glass-input {
+  width: 100%;
+  padding: 1.1rem 1.6rem 1.1rem 3rem; // Adjusted for search icon
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px; // Matching the rectangular glass card style
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  color: #ffffff;
+  outline: none;
+  transition: all 0.4s ease;
+
+  &:focus {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
   }
 }
