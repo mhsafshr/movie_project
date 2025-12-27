@@ -68,11 +68,16 @@
   // --- Button ---
   .btn-start {
     @include accent-button;
+    text-decoration: none;
   }
 }
 
 // Add a slight hover animation to posters when hovering the container
 .poster-container:hover {
-  .poster--left { transform: translateX(-160px) rotate(-20deg); }
-  .poster--right { transform: translateX(160px) rotate(20deg); }
+  .poster--left {
+    transform: translateX(-160px) rotate(-20deg);
+  }
+  .poster--right {
+    transform: translateX(160px) rotate(20deg);
+  }
 }

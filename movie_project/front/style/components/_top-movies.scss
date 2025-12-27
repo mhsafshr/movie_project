@@ -1,6 +1,6 @@
 .top-movies {
   padding: 20px 0;
-  background: #0A0A0A;
+  background: #0a0a0a;
 }
 
 .top-movies .container {
@@ -10,20 +10,25 @@
 }
 
 @media (max-width: 1400px) {
-  .top-movies .container { padding: 0 70px; }
+  .top-movies .container {
+    padding: 0 70px;
+  }
 }
 
 @media (max-width: 992px) {
-  .top-movies .container { padding: 0 50px; }
+  .top-movies .container {
+    padding: 0 50px;
+  }
 }
 
 @media (max-width: 768px) {
-  .top-movies .container { padding: 0 30px; }
+  .top-movies .container {
+    padding: 0 30px;
+  }
 }
 
 .top-movies__title {
   margin: 0 0 4rem 0;
-
 }
 
 .top-movies__link {
@@ -37,18 +42,18 @@
 }
 
 .top-movies__link::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 5px;
   bottom: 6px;
   left: 0;
-  background: #E7CF56;
+  background: #e7cf56;
   transition: width 0.5s ease;
 }
 
 .top-movies__link:hover {
-  color: #E7CF56;
+  color: #e7cf56;
 }
 
 .top-movies__link:hover::after {
@@ -59,6 +64,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 2.5rem;
+  padding-top: 1rem;
 }
 
 .movie-card {
@@ -81,7 +87,7 @@
 
 .movie-card:hover .movie-card__name,
 .movie-card:hover .movie-card__year {
-  color: #E7CF56;
+  color: #e7cf56;
 }
 
 .movie-card:hover img {
@@ -103,10 +109,14 @@
 }
 
 .movie-card__image::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, transparent 45%);
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.95) 0%,
+    transparent 45%
+  );
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
