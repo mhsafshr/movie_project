@@ -97,8 +97,7 @@
 
   &__btn {
     align-self: flex-end;
-    margin-bottom: 0.5rem; // دقیقاً هم‌سطح با آخرین خط متن
-
+    margin-bottom: 0.5rem;
     @include glass-button;
 
     @media (max-width: 768px) {

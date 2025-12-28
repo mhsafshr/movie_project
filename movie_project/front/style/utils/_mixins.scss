@@ -170,3 +170,41 @@
     background: rgba(255, 255, 255, 0.12);
   }
 }
+
+// Global Variables and Mixins (add this at the top of your main SCSS file or in a _variables.scss file)
+// Breakpoints based on common Tailwind-like sizes:
+// - xl: ≥1200px (default styles apply here)
+// - lg: 992px – 1199px
+// - md: 768px – 991px
+// - sm: <768px
+
+$breakpoints: (
+  xl: 1200px,
+  lg: 992px,
+  md: 768px,
+  sm: 0px
+);
+
+@mixin media-xl {
+  @media (min-width: map-get($breakpoints, xl)) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media (max-width: 1199px) and (min-width: map-get($breakpoints, lg)) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media (max-width: 991px) and (min-width: map-get($breakpoints, md)) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @media (max-width: 767px) {
+    @content;
+  }
+}

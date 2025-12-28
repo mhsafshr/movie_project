@@ -37,6 +37,8 @@ body {
     border-radius: 40px;
     overflow: hidden;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+    direction: ltr;
+
 
     &::before {
       content: "";
@@ -54,6 +56,8 @@ body {
       flex-direction: column;
       justify-content: center;
       max-width: 50%;
+      direction: ltr;
+      left: 30px;
 
       @media (max-width: 768px) {
         padding: 3rem;

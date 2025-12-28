@@ -1,50 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MOVA - Discover Movies and Journals</title>
+    <title>مووا | دنیای فیلم‌ها و داستان‌های سینما</title>
     <link rel="stylesheet" href="./style/index.css" />
   </head>
+
   <body style="padding: 0 45px">
     <!-- Header Section -->
     <header class="site-header">
       <div class="container">
-        <a href="index.html" class="logo">MOVA</a>
+        <a href="index.html" class="logo">مووا</a>
 
         <nav class="nav">
-          <a href="./pages/all-journal.html" class="nav__link">journal</a>
-          <a href="./pages/all-movies.html" class="nav__link">movies</a>
-          <a href="./pages/landing-page.html" class="nav__link">mova bot</a>
+          <a href="./pages/all-journal.html" class="nav__link">ژورنال‌ها</a>
+          <a href="./pages/all-movies.html" class="nav__link">فیلم‌ها</a>
         </nav>
+
         <div class="header-search">
-          <form name="search">
+          <form name="search" role="search">
             <input
               type="text"
+              id="search-input"
               class="header-search__input"
-              placeholder="Search movies..."
+              placeholder="دنبال چه فیلمی هستی؟"
               autocomplete="off"
             />
           </form>
-          <div class="header-search__icon" aria-label="Search">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 50 50"
-              width="28"
-              height="28"
-            >
-              <path
-                fill="#E7CF56"
-                d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"
-              />
-            </svg>
+          <div class="header-search__icon" aria-label="جستجو">
+            <!-- icon -->
           </div>
+          <div class="search-results" id="search-results"></div>
         </div>
 
         <div class="auth" id="auth-container">
-          <a href="./pages/login.html" class="auth__link">Log in</a>
+          <a href="./pages/login.html" class="auth__link">ورود</a>
           <span class="auth__separator">|</span>
-          <a href="./pages/signup.html" class="auth__link">sign up</a>
+          <a href="./pages/signup.html" class="auth__link">ثبت‌نام</a>
         </div>
       </div>
     </header>
@@ -53,7 +46,7 @@
     <section class="hero">
       <img
         src="./images/hero.png"
-        alt="Hero background featuring cinematic atmosphere"
+        alt="پس‌زمینه سینمایی مووا"
         class="hero__image"
       />
 
@@ -62,10 +55,10 @@
       <div class="hero__content">
         <div class="hero__bottom-row">
           <h2 class="hero__title">
-            From the movies you loved<br />
-            to the ones waiting for you
+            سینما از اینجا شروع می‌شود<br />
+            انتخاب بعدی‌ات را هوشمندانه ببین
           </h2>
-          <a href="./pages/landing-page.html" class="hero__btn">let's go!</a>
+          <a href="#" class="hero__btn"> شروع کن </a>
         </div>
       </div>
     </section>
@@ -73,13 +66,17 @@
     <!-- Top Movies Section -->
     <section class="top-movies">
       <div class="container">
-        <h2 class=".top-movies__link">
-          <a href="./pages/all-journal.html" class="journals__link"
-            >Top movies ></a
-          >
+        <h2 class="top-movies__title">
+          <a href="./pages/all-movies.html" class="journals__link">
+            فیلم‌های برتر
+          </a>
         </h2>
+
         <div class="all-movies__grid">
-          <a href="./pages/movie-detail.html?id=interstellar" class="movie-card">
+          <a
+            href="./pages/movie-detail.html?id=interstellar"
+            class="movie-card"
+          >
             <div class="movie-card__image">
               <img
                 src="./images/interstellar.jpg"
@@ -119,7 +116,7 @@
             <div class="movie-card__image">
               <img
                 src="./images/oppenheimer.jpg"
-                alt="oppenheimer movie poster"
+                alt="Oppenheimer movie poster"
               />
             </div>
             <div class="movie-card__info">
@@ -147,17 +144,15 @@
     <!-- Recommended Banner Section -->
     <section class="recommend-banner">
       <div class="recommend-banner__robot">
-        <img src="./images/robo-banner.png" alt="Friendly robot illustration" />
+        <img src="./images/robo-banner.png" alt="ربات پیشنهاددهنده مووا" />
       </div>
 
       <div class="recommend-banner__content">
-        <h2 class="recommend-banner__title">
-          Stop Arguing Over What to Watch!
-        </h2>
-        <p class="recommend-banner__subtitle">
-          Let Our Algorithm Be the Judge.
-        </p>
-        <a href="./pages/landing-page.html" class="recommend-banner__btn">recommend me a movie</a>
+        <h2 class="recommend-banner__title">انتخاب فیلم، بدون سردرگمی</h2>
+        <p class="recommend-banner__subtitle">سلیقه‌ات را به مووا بسپار</p>
+        <a href="#" class="recommend-banner__btn">
+          یه فیلم پیشنهاد بده
+        </a>
       </div>
     </section>
 
@@ -165,61 +160,31 @@
     <section class="journals">
       <div class="container">
         <h2 class="journals__title">
-          <a href="./pages/all-journal.html" class="journals__link"
-            >Journals ></a
-          >
+          <a href="./pages/all-journal.html" class="journals__link">
+            ژورنال‌ها
+          </a>
         </h2>
+
         <div class="journals__grid">
           <article class="journals-card-featured">
             <img
               src="./images/marvel-journal.jpg"
-              alt="Marvel Cinematic Universe timeline guide cover"
+              alt="راهنمای جهان سینمایی مارول"
               class="journals-card-featured__image"
             />
             <div class="journals-card-featured__content">
               <h5 class="journals-card-featured__title">
-                The Ultimate MCU Timeline Guide
+                نقشه کامل دنیای سینمایی مارول
               </h5>
               <p class="journals-card-featured__excerpt">
-                Navigating the Marvel Cinematic Universe can feel overwhelming.
-                With over 30 movies and multiple TV series, where do you even
-                begin? Do you watch in release order or chronological order?
-                What about the Disney+ shows? We asked these same questions,
-                which is why we created the most comprehensive MCU timeline
-                guide available. Our team of Marvel experts has mapped out every
-                connection, every post-credit scene, and every character arc
-                across phases 1-5 and beyond...
+                اگر نمی‌دانی MCU را از کجا شروع کنی، تنها نیستی. این راهنما تمام
+                فیلم‌ها، سریال‌ها و صحنه‌های مهم مارول را به هم وصل می‌کند تا
+                بدون سردرگمی، وارد یکی از بزرگ‌ترین جهان‌های سینمایی تاریخ
+                شوی...
               </p>
-              <a href="./pages/journal-detail.html" class="journals__btn"
-                >Continue Reading</a
-              >
-            </div>
-          </article>
-        </div>
-        <div class="journals__grid">
-          <article class="journals-card-featured">
-            <img
-              src="./images/top250-jounal.webp"
-              alt="IMDb Top 250 movies list cover"
-              class="journals-card-featured__image"
-            />
-            <div class="journals-card-featured__content">
-              <h5 class="journals-card-featured__title">The IMDb Top 250</h5>
-              <p class="journals-card-featured__excerpt">
-                The IMDb Top 250 is more than a ranking — it’s a snapshot of the
-                films audiences consider the most impactful and unforgettable.
-                In my article, I explore why these movies stand out, from
-                classics that shaped cinema to modern titles that redefined
-                storytelling. Covering every genre and era, each film earns its
-                place through strong direction, memorable characters, and
-                lasting influence. Whether you love dramas, sci-fi, thrillers,
-                or timeless favorites, the Top 250 offers one of the most
-                reliable guides to the best movies ever made — and this piece
-                breaks down what keeps the list so iconic...
-              </p>
-              <a href="./pages/journal-detail.html" class="journals__btn"
-                >Continue Reading</a
-              >
+              <a href="./pages/journal-detail.html" class="journals__btn">
+                ادامه مقاله
+              </a>
             </div>
           </article>
         </div>
@@ -229,11 +194,14 @@
     <!-- Website Recommendation Section -->
     <section class="recommend-cta">
       <div class="recommend-cta__content">
-        <h2 class="recommend-cta__title">FIND THE BEST MOVIE FOR TONIGHT</h2>
+        <h2 class="recommend-cta__title">فیلم امشب رو هوشمندانه انتخاب کن</h2>
         <p class="recommend-cta__subtitle">
-          Get Personalized Movie<br />Recommendations in Seconds
+          پیشنهاد فیلم شخصی‌سازی‌شده<br />
+          دقیقاً مطابق سلیقه تو
         </p>
-        <a href="./pages/landing-page.html" class="recommend-cta__btn">EXPLORE MORE...</a>
+        <a href="#" class="recommend-cta__btn">
+          فیلم بعدی من چیه؟
+        </a>
       </div>
 
       <div class="recommend-cta__images">
@@ -254,47 +222,47 @@
     <footer class="site-footer">
       <div class="container">
         <div class="site-footer__section site-footer__section--watch">
-          <h3 class="site-footer__title">What to watch</h3>
+          <h3 class="site-footer__title">چی ببینیم؟</h3>
           <ul class="site-footer__nav">
             <li>
-              <a href="./pages/landing-page.html" class="site-footer__link">movie recommendation</a>
             </li>
-            <li><a href="#" class="site-footer__link">Top movies</a></li>
             <li>
-              <a href="./pages/all-journal.html" class="site-footer__link"
-                >Journal</a
-              >
+              <a href="#" class="site-footer__link">فیلم‌های منتخب</a>
+            </li>
+            <li>
+              <a href="./pages/all-journal.html" class="site-footer__link">
+                ژورنال سینما
+              </a>
             </li>
           </ul>
         </div>
 
         <div class="site-footer__section site-footer__section--about">
-          <h3 class="site-footer__title">What is 'MOVA'?</h3>
+          <h3 class="site-footer__title">مووا چیست؟</h3>
           <p class="site-footer__about">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-            purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
-            rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed
-            euismod nisi porta lorem mollis.
+            مووا جایی برای عاشقان سینماست؛ جایی که انتخاب فیلم ساده‌تر،
+            هوشمندانه‌تر و تماشای آن لذت‌بخش‌تر می‌شود.
           </p>
         </div>
+
         <div
           class="site-footer__section site-footer__section--auth site-footer__auth"
         >
           <div class="site-footer__logo-placeholder">
             <img
               src="./images/logo.jpg"
-              alt="MOVA logo"
+              alt="لوگوی مووا"
               class="site-footer__logo"
             />
           </div>
-          <a href="./pages/login.html" class="site-footer__auth-link">Log in</a>
-          <a href="./pages/signup.html" class="site-footer__auth-link"
-            >sign up</a
-          >
+          <a href="./pages/login.html" class="site-footer__auth-link">ورود</a>
+          <a href="./pages/signup.html" class="site-footer__auth-link">
+            ثبت‌نام
+          </a>
         </div>
       </div>
     </footer>
+
+    <script src="./js/main.js"></script>
   </body>
-  <script src="./js/main.js"></script>
 </html>

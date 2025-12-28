@@ -129,6 +129,8 @@
 }
 
 .site-header {
+  position: relative;
+  z-index: 99;
   height: 80px;
   background: rgba(10, 10, 10, 0.95);
   -webkit-backdrop-filter: blur(20px);
@@ -162,14 +164,12 @@
   text-decoration: none;
   font-size: 1.25rem;
   text-transform: lowercase;
-  position: relative;
 }
 .site-header .nav__link:hover {
   color: #e7cf56;
 }
 .site-header .nav__link::after {
   content: "";
-  position: absolute;
   width: 0;
   height: 2px;
   bottom: -8px;
@@ -287,6 +287,57 @@
 .header-search__input:focus ~ .header-search__icon {
   opacity: 0.7;
   transform: translateY(-50%) scale(0.9);
+}
+.header-search .search-results {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  background: rgba(10, 10, 10, 0.95);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  border: 1px solid #242424;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1000;
+  padding: 8px 0;
+}
+.header-search .search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #eaeaea;
+  transition: background 0.3s;
+}
+.header-search .search-result-item:hover {
+  background: rgba(231, 207, 86, 0.1);
+}
+.header-search .search-result__poster {
+  width: 50px;
+  height: 75px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 6px;
+  margin-left: 16px;
+}
+.header-search .search-result__info {
+  display: flex;
+  flex-direction: column;
+}
+.header-search .search-result__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e7cf56;
+}
+.header-search .search-result__year {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  margin-top: 4px;
 }
 
 .auth {
@@ -603,7 +654,7 @@
 }
 .recommend-banner__robot {
   position: absolute;
-  right: 24px;
+  left: 0;
   bottom: 0;
   width: 36%;
   max-width: 650px;
@@ -787,13 +838,13 @@
 
 .journals__grid {
   display: grid;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .journals-card-featured {
   display: grid;
   grid-template-columns: 420px 1fr;
-  gap: 3.5rem;
+  gap: 0;
   background: rgba(255, 255, 255, 0.04);
   -webkit-backdrop-filter: blur(12px);
           backdrop-filter: blur(12px);
@@ -818,7 +869,7 @@
 }
 
 .journals-card-featured__content {
-  padding: 3rem 2.5rem 3rem 0;
+  padding: 3rem 1rem 3rem 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -937,7 +988,7 @@
 }
 .recommend-cta__images {
   position: absolute;
-  right: 60px;
+  left: 140px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -1252,6 +1303,7 @@ body {
   border-radius: 40px;
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+  direction: ltr;
 }
 .signup-page .signup-box::before {
   content: "";
@@ -1268,6 +1320,8 @@ body {
   flex-direction: column;
   justify-content: center;
   max-width: 50%;
+  direction: ltr;
+  left: 30px;
 }
 @media (max-width: 768px) {
   .signup-page .signup-box__content {
@@ -1539,7 +1593,7 @@ body {
   width: 100%;
   max-width: 1200px;
   height: 600px;
-  background: url("/images/Gemini_Generated_Image_rybfnfrybfnfrybf.png") center/cover no-repeat;
+  background: url("/movie_project/front/images/Gemini_Generated_Image_rybfnfrybfnfrybf.png") center/cover no-repeat;
   border-radius: 40px;
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
@@ -2005,6 +2059,7 @@ body {
 
 .movie-detail-page .site-header {
   position: fixed;
+  width: 100%;
   top: 0;
   background: rgba(0, 0, 0, 0.25);
   -webkit-backdrop-filter: blur(12px);
@@ -2020,6 +2075,7 @@ body {
   align-items: center;
   padding: 7rem 5rem 0;
   overflow: hidden;
+  direction: ltr;
 }
 .movie-detail__overlay {
   position: absolute;
@@ -2732,6 +2788,9 @@ body {
   position: relative;
   margin-bottom: 1.5rem;
 }
+.rec-page .search-wrapper .input-group {
+  position: relative;
+}
 .rec-page .search-wrapper .search-icon {
   width: 30px;
   position: absolute;
@@ -2739,6 +2798,8 @@ body {
   top: 58%;
   transform: translateY(-50%);
   opacity: 0.5;
+  pointer-events: none;
+  z-index: 2;
 }
 .rec-page .search-wrapper input {
   width: 100%;
@@ -2753,6 +2814,7 @@ body {
   color: #ffffff;
   outline: none;
   transition: all 0.4s ease;
+  padding-left: 50px;
 }
 .rec-page .search-wrapper input:focus {
   border-color: rgba(255, 255, 255, 0.4);
@@ -2763,28 +2825,67 @@ body {
   top: 100%;
   left: 0;
   right: 0;
-  background: #1a1a1a;
+  background: rgba(26, 26, 26, 0.95);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin-top: 8px;
-  max-height: 250px;
+  border-radius: 16px;
+  margin-top: 10px;
+  max-height: 320px;
   overflow-y: auto;
-  z-index: 100;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
   display: none;
+  direction: rtl;
+  text-align: right;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .rec-page .results-dropdown.active {
   display: block;
 }
-.rec-page .results-dropdown li {
-  padding: 0.8rem 1rem;
+.rec-page .results-dropdown::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+.rec-page .results-dropdown::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+.rec-page .results-dropdown .search-result-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  transition: background 0.2s;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background 0.25s ease;
 }
-.rec-page .results-dropdown li:hover {
-  background: rgba(255, 255, 255, 0.1);
+.rec-page .results-dropdown .search-result-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.rec-page .results-dropdown .search-result__poster {
+  width: 50px;
+  height: 75px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.rec-page .results-dropdown .search-result__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.rec-page .results-dropdown .search-result__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e7cf56;
+  line-height: 1.3;
+}
+.rec-page .results-dropdown .search-result__year {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
 }
 .rec-page .tags-container {
   display: flex;
@@ -2836,6 +2937,8 @@ body {
 *::after {
   box-sizing: border-box;
   font-family: "Inter", system-ui, -apple-system, sans-serif !important;
+  text-align: right;
+  direction: rtl;
 }
 
 html {
