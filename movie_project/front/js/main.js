@@ -134,10 +134,15 @@ document.addEventListener("DOMContentLoaded", () => {
       document.title = `${movie.title} - مووا`;
       document.getElementById("movie-title").textContent = movie.title;
       document.getElementById("movie-year").textContent = `.${movie.year}`;
-      document.getElementById("movie-rating-badge").textContent = `.${movie.ratingBadge}`;
-      document.getElementById("movie-duration").textContent = `.${movie.duration}`;
+      document.getElementById(
+        "movie-rating-badge"
+      ).textContent = `.${movie.ratingBadge}`;
+      document.getElementById(
+        "movie-duration"
+      ).textContent = `.${movie.duration}`;
       document.getElementById("movie-score").textContent = `${movie.score}/10`;
-      document.getElementById("movie-description").textContent = movie.description;
+      document.getElementById("movie-description").textContent =
+        movie.description;
       document.getElementById("movie-director").textContent = movie.director;
       document.getElementById("movie-writers").textContent = movie.writers;
       document.getElementById("movie-stars").textContent = movie.stars;
@@ -153,21 +158,116 @@ document.addEventListener("DOMContentLoaded", () => {
         tagsContainer.appendChild(span);
       });
     }
+
+    // ---------- قلب و امتیازدهی در صفحه جزئیات فیلم ----------
+    // ---------- قلب و امتیازدهی + اضافه به علاقه‌مندی‌ها در صفحه جزئیات فیلم ----------
+    const favBtn = document.querySelector(".movie-detail__add-btn");
+    const popup = document.querySelector(".movie-detail__rating-popup");
+    const ratingOptions = document.querySelectorAll(".rating-option");
+
+    if (favBtn && popup) {
+      const favoriteMoviesKey = "favoriteMovies";
+      let favoriteMovies =
+        JSON.parse(localStorage.getItem(favoriteMoviesKey)) || [];
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentMovieId = urlParams.get("id");
+
+      // وضعیت اولیه قلب بر اساس localStorage
+      if (favoriteMovies.includes(currentMovieId)) {
+        favBtn.classList.add("is-favorite");
+      }
+
+      favBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const isFavorite = favBtn.classList.toggle("is-favorite");
+
+        if (isFavorite) {
+          popup.classList.add("is-visible");
+
+          // اضافه به لیست علاقه‌مندی‌ها
+          if (!favoriteMovies.includes(currentMovieId)) {
+            favoriteMovies.push(currentMovieId);
+            localStorage.setItem(
+              favoriteMoviesKey,
+              JSON.stringify(favoriteMovies)
+            );
+          }
+        } else {
+          popup.classList.remove("is-visible");
+          ratingOptions.forEach((o) => o.classList.remove("is-selected"));
+
+          // حذف از لیست علاقه‌مندی‌ها
+          favoriteMovies = favoriteMovies.filter((id) => id !== currentMovieId);
+          localStorage.setItem(
+            favoriteMoviesKey,
+            JSON.stringify(favoriteMovies)
+          );
+        }
+      });
+
+      ratingOptions.forEach((option) => {
+        option.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          ratingOptions.forEach((o) => o.classList.remove("is-selected"));
+          option.classList.add("is-selected");
+
+          const rating = option.textContent.trim();
+          console.log(`امتیاز کاربر به فیلم: ${rating}/10`);
+          // در آینده می‌توانید امتیاز را جداگانه ذخیره کنید
+        });
+      });
+
+      document.addEventListener("click", () => {
+        popup.classList.remove("is-visible");
+      });
+
+      popup.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+    }
   }
 
   // ---------- صفحه پیشنهاد فیلم (اضافه کردن فیلم به لیست بدون پوستر) ----------
-  const movieSearchInput = document.getElementById('movieSearch');
-  const resultsList = document.getElementById('resultsList');
-  const tagsContainer = document.getElementById('selectedMovies');
-  const nextBtn = document.querySelector('.next-btn');
+  const movieSearchInput = document.getElementById("movieSearch");
+  const resultsList = document.getElementById("resultsList");
+  const tagsContainer = document.getElementById("selectedMovies");
+  const nextBtn = document.querySelector(".next-btn");
 
   if (movieSearchInput && resultsList && tagsContainer && nextBtn) {
     const moviesForSearch = [
-      { id: "interstellar", title: "Interstellar", year: "2014", poster: "../images/interstellar.jpg" },
-      { id: "inception", title: "Inception", year: "2010", poster: "../images/inception.jpg" },
-      { id: "dune-part-2", title: "Dune: Part Two", year: "2024", poster: "../images/Dune part 2.jpg" },
-      { id: "oppenheimer", title: "Oppenheimer", year: "2023", poster: "../images/oppenheimer.jpg" },
-      { id: "the-matrix", title: "The Matrix", year: "1999", poster: "../images/the matrix .jpg" }
+      {
+        id: "interstellar",
+        title: "Interstellar",
+        year: "2014",
+        poster: "../images/interstellar.jpg",
+      },
+      {
+        id: "inception",
+        title: "Inception",
+        year: "2010",
+        poster: "../images/inception.jpg",
+      },
+      {
+        id: "dune-part-2",
+        title: "Dune: Part Two",
+        year: "2024",
+        poster: "../images/Dune part 2.jpg",
+      },
+      {
+        id: "oppenheimer",
+        title: "Oppenheimer",
+        year: "2023",
+        poster: "../images/oppenheimer.jpg",
+      },
+      {
+        id: "the-matrix",
+        title: "The Matrix",
+        year: "1999",
+        poster: "../images/the matrix .jpg",
+      },
     ];
 
     let selectedList = [];
@@ -254,40 +354,65 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---------- جستجوی زنده در هدر صفحه اصلی ----------
-  const headerSearchInput = document.getElementById('search-input');
-  const headerResults = document.getElementById('search-results');
+  const headerSearchInput = document.getElementById("search-input");
+  const headerResults = document.getElementById("search-results");
 
   if (headerSearchInput && headerResults) {
     const moviesForSearch = [
-      { id: "interstellar", title: "Interstellar", year: "2014", poster: "../images/interstellar.jpg" },
-      { id: "inception", title: "Inception", year: "2010", poster: "../images/inception.jpg" },
-      { id: "dune-part-2", title: "Dune: Part Two", year: "2024", poster: "../images/Dune part 2.jpg" },
-      { id: "oppenheimer", title: "Oppenheimer", year: "2023", poster: "../images/oppenheimer.jpg" },
-      { id: "the-matrix", title: "The Matrix", year: "1999", poster: "../images/the matrix .jpg" }
+      {
+        id: "interstellar",
+        title: "Interstellar",
+        year: "2014",
+        poster: "../images/interstellar.jpg",
+      },
+      {
+        id: "inception",
+        title: "Inception",
+        year: "2010",
+        poster: "../images/inception.jpg",
+      },
+      {
+        id: "dune-part-2",
+        title: "Dune: Part Two",
+        year: "2024",
+        poster: "../images/Dune part 2.jpg",
+      },
+      {
+        id: "oppenheimer",
+        title: "Oppenheimer",
+        year: "2023",
+        poster: "../images/oppenheimer.jpg",
+      },
+      {
+        id: "the-matrix",
+        title: "The Matrix",
+        year: "1999",
+        poster: "../images/the matrix .jpg",
+      },
     ];
 
-    headerSearchInput.addEventListener('input', function () {
+    headerSearchInput.addEventListener("input", function () {
       const query = this.value.trim().toLowerCase();
-      headerResults.innerHTML = '';
+      headerResults.innerHTML = "";
 
       if (!query) {
-        headerResults.style.display = 'none';
+        headerResults.style.display = "none";
         return;
       }
 
-      const filtered = moviesForSearch.filter(movie =>
+      const filtered = moviesForSearch.filter((movie) =>
         movie.title.toLowerCase().includes(query)
       );
 
       if (filtered.length === 0) {
-        headerResults.style.display = 'none';
+        headerResults.style.display = "none";
         return;
       }
 
-      filtered.forEach(movie => {
-        const item = document.createElement('a');
+      filtered.forEach((movie) => {
+        const item = document.createElement("a");
         item.href = `./pages/movie-detail.html?id=${movie.id}`;
-        item.className = 'search-result-item';
+        item.className = "search-result-item";
         item.innerHTML = `
           <img src="${movie.poster}" alt="${movie.title}" class="search-result__poster">
           <div class="search-result__info">
@@ -298,18 +423,605 @@ document.addEventListener("DOMContentLoaded", () => {
         headerResults.appendChild(item);
       });
 
-      headerResults.style.display = 'block';
+      headerResults.style.display = "block";
     });
 
-    document.addEventListener('click', function (e) {
-      if (!headerSearchInput.contains(e.target) && !headerResults.contains(e.target)) {
-        headerResults.style.display = 'none';
+    document.addEventListener("click", function (e) {
+      if (
+        !headerSearchInput.contains(e.target) &&
+        !headerResults.contains(e.target)
+      ) {
+        headerResults.style.display = "none";
       }
     });
 
-    headerResults.addEventListener('click', function (e) {
+    headerResults.addEventListener("click", function (e) {
       e.stopPropagation();
     });
   }
-});
 
+  // ---------- دیتابیس ماک فیلم‌های برتر ----------
+  const topMoviesData = [
+    {
+      id: "interstellar",
+      title: "Interstellar",
+      year: "2014",
+      poster: "../front/images/interstellar.jpg",
+      alt: "Interstellar movie poster",
+    },
+    {
+      id: "inception",
+      title: "Inception",
+      year: "2010",
+      poster: "../front/images/inception.jpg",
+      alt: "Inception movie poster",
+    },
+    {
+      id: "dune-part-2",
+      title: "Dune: Part Two",
+      year: "2024",
+      poster: "../front/images/Dune part 2.jpg",
+      alt: "Dune: Part Two movie poster",
+    },
+    {
+      id: "oppenheimer",
+      title: "Oppenheimer",
+      year: "2023",
+      poster: "../front/images/oppenheimer.jpg",
+      alt: "Oppenheimer movie poster",
+    },
+    {
+      id: "the-matrix",
+      title: "The Matrix",
+      year: "1999",
+      poster: "../front/images/the matrix .jpg",
+      alt: "The Matrix movie poster",
+    },
+    {
+      id: "avatar-2",
+      title: "Avatar: The Way of Water",
+      year: "2022",
+      poster: "../front/images/avatar2.jpg",
+      alt: "Avatar: The Way of Water movie poster",
+    },
+    {
+      id: "the-batman",
+      title: "The Batman",
+      year: "2022",
+      poster: "../front/images/thebatman.jpg",
+      alt: "The Batman movie poster",
+    },
+    {
+      id: "guardians-3",
+      title: "Guardians of the Galaxy Vol. 3",
+      year: "2023",
+      poster: "../front/images/guardians3.jpg",
+      alt: "Guardians of the Galaxy Vol. 3 movie poster",
+    },
+    {
+      id: "john-wick-4",
+      title: "John Wick: Chapter 4",
+      year: "2023",
+      poster: "../front/images/johnwick4.jpg",
+      alt: "John Wick: Chapter 4 movie poster",
+    },
+    {
+      id: "black-panther-2",
+      title: "Black Panther: Wakanda Forever",
+      year: "2022",
+      poster: "../front/images/blackpanther2.jpg",
+      alt: "Black Panther: Wakanda Forever movie poster",
+    },
+  ];
+
+  // ---------- رندر دینامیک فیلم‌های برتر (فقط ۵ تا در صفحه اصلی) ----------
+  const moviesGrid = document.querySelector(".all-movies__grid");
+  if (moviesGrid) {
+    // تشخیص صفحه اصلی (هوم)
+    const isHomePage =
+      window.location.pathname === "/" ||
+      window.location.pathname.includes("index.html") ||
+      window.location.pathname.includes("home.html");
+
+    // در صفحه اصلی فقط ۵ فیلم اول، در صفحات دیگر همه
+    const moviesToShow = isHomePage ? topMoviesData.slice(0, 5) : topMoviesData;
+
+    moviesToShow.forEach((movie) => {
+      const card = document.createElement("a");
+      card.href = `./pages/movie-detail.html?id=${movie.id}`;
+      card.className = "movie-card";
+
+      card.innerHTML = `
+        <div class="movie-card__image">
+          <img src="${movie.poster}" alt="${movie.alt}" />
+        </div>
+        <div class="movie-card__info">
+          <h3 class="movie-card__name">${movie.title}</h3>
+          <p class="movie-card__year">${movie.year}</p>
+        </div>
+      `;
+
+      moviesGrid.appendChild(card);
+    });
+  }
+
+  // ---------- دیتابیس ماک بازیگران ----------
+  const actorsData = [
+    {
+      id: "leonardo-dicaprio",
+      name: "لئوناردو دی‌کاپریو",
+      age: 51,
+      gender: "مرد",
+      famousMovie: "Inception",
+      image: "../images/actors/leonardo-dicaprio.jpg",
+    },
+    {
+      id: "cillian-murphy",
+      name: "سیلیان مورفی",
+      age: 49,
+      gender: "مرد",
+      famousMovie: "Oppenheimer",
+      image: "../images/actors/cillian-murphy.jpg",
+    },
+    {
+      id: "timothee-chalamet",
+      name: "تیموتی شالامه",
+      age: 30,
+      gender: "مرد",
+      famousMovie: "Dune: Part Two",
+      image: "../images/actors/timothee-chalamet.jpg",
+    },
+    {
+      id: "keanu-reeves",
+      name: "کیانو ریوز",
+      age: 61,
+      gender: "مرد",
+      famousMovie: "The Matrix",
+      image: "../images/actors/keanu-reeves.jpg",
+    },
+    {
+      id: "matthew-mcconaughey",
+      name: "متیو مک‌کانهی",
+      age: 56,
+      gender: "مرد",
+      famousMovie: "Interstellar",
+      image: "../images/actors/matthew-mcconaughey.jpg",
+    },
+    {
+      id: "scarlett-johansson",
+      name: "اسکارلت جوهانسون",
+      age: 41,
+      gender: "زن",
+      famousMovie: "Avengers: Endgame",
+      image: "../images/actors/scarlett-johansson.jpg",
+    },
+    {
+      id: "robert-downey-jr",
+      name: "رابرت داونی جونیور",
+      age: 60,
+      gender: "مرد",
+      famousMovie: "Iron Man",
+      image: "../images/actors/robert-downey-jr.jpg",
+    },
+    {
+      id: "natalie-portman",
+      name: "ناتالی پورتمن",
+      age: 44,
+      gender: "زن",
+      famousMovie: "Black Swan",
+      image: "../images/actors/natalie-portman.jpg",
+    },
+    {
+      id: "christian-bale",
+      name: "کریستین بیل",
+      age: 51,
+      gender: "مرد",
+      famousMovie: "The Dark Knight",
+      image: "../images/actors/christian-bale.jpg",
+    },
+    {
+      id: "emma-stone",
+      name: "اما استون",
+      age: 37,
+      gender: "زن",
+      famousMovie: "La La Land",
+      image: "../images/actors/emma-stone.jpg",
+    },
+  ];
+
+  // ---------- جستجو و فیلتر بازیگران (فیلتر زنده با تایپ) ----------
+  const actorSearchInput = document.getElementById("actor-search");
+  const genderRadios = document.querySelectorAll('input[name="gender"]');
+  const actorsGrid = document.getElementById("top-actors-grid");
+
+  const favoriteActorsKey = "favoriteActors";
+  let favoriteActors =
+    JSON.parse(localStorage.getItem(favoriteActorsKey)) || [];
+
+  let currentActorSearch = "";
+  let currentGender = "all";
+
+  function filterAndRenderActors() {
+    if (!actorsGrid) return;
+
+    actorsGrid.innerHTML = "";
+
+    actorsData.forEach((actor) => {
+      const matchesSearch = actor.name
+        .toLowerCase()
+        .includes(currentActorSearch.toLowerCase());
+      const matchesGender =
+        currentGender === "all" || actor.gender === currentGender;
+
+      if (matchesSearch && matchesGender) {
+        const card = document.createElement("a");
+        card.href = `./pages/actor-detail.html?id=${actor.id}`;
+        card.className = "actor-card";
+        card.dataset.actorId = actor.id;
+
+        card.innerHTML = `
+          <div class="actor-card__heart">
+            <svg viewBox="0 0 24 24" class="heart-icon">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <div class="actor-card__image">
+            <img src="${actor.image}" alt="${actor.name}" />
+          </div>
+          <div class="actor-card__info">
+            <h3 class="actor-card__name">${actor.name}</h3>
+            <p class="actor-card__details">سن: ${actor.age} | ${actor.gender}</p>
+            <p class="actor-card__famous"> ${actor.famousMovie}</p>
+          </div>
+        `;
+
+        actorsGrid.appendChild(card);
+      }
+    });
+
+    // اعمال وضعیت علاقه‌مندی‌ها به کارت‌های رندر شده
+    document.querySelectorAll(".actor-card").forEach((card) => {
+      const actorId = card.dataset.actorId;
+      const heartContainer = card.querySelector(".actor-card__heart");
+
+      if (favoriteActors.includes(actorId)) {
+        heartContainer.classList.add("favorited");
+      }
+
+      heartContainer.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (favoriteActors.includes(actorId)) {
+          favoriteActors = favoriteActors.filter((id) => id !== actorId);
+          heartContainer.classList.remove("favorited");
+        } else {
+          favoriteActors.push(actorId);
+          heartContainer.classList.add("favorited");
+        }
+
+        localStorage.setItem(favoriteActorsKey, JSON.stringify(favoriteActors));
+      });
+    });
+  }
+
+  if (actorSearchInput) {
+    actorSearchInput.addEventListener("input", (e) => {
+      currentActorSearch = e.target.value.trim();
+      filterAndRenderActors();
+    });
+  }
+
+  genderRadios.forEach((radio) => {
+    radio.addEventListener("change", (e) => {
+      currentGender = e.target.value;
+      filterAndRenderActors();
+    });
+  });
+
+  // رندر اولیه بازیگران
+  filterAndRenderActors();
+
+  // ---------- دیتابیس ماک کارگردان‌ها ----------
+  const directorsData = [
+    {
+      id: "christopher-nolan",
+      name: "کریستوفر نولان",
+      age: 55,
+      gender: "مرد",
+      famousMovie: "Oppenheimer",
+      image: "../images/directors/christopher-nolan.jpg",
+    },
+    {
+      id: "denis-villeneuve",
+      name: "دنیس ویلنوو",
+      age: 58,
+      gender: "مرد",
+      famousMovie: "Dune: Part Two",
+      image: "../images/directors/denis-villeneuve.jpg",
+    },
+    {
+      id: "quentin-tarantino",
+      name: "کوئنتین تارانتینو",
+      age: 62,
+      gender: "مرد",
+      famousMovie: "Pulp Fiction",
+      image: "../images/directors/quentin-tarantino.jpg",
+    },
+    {
+      id: "martin-scorsese",
+      name: "مارتین اسکورسیزی",
+      age: 83,
+      gender: "مرد",
+      famousMovie: "Goodfellas",
+      image: "../images/directors/martin-scorsese.jpg",
+    },
+    {
+      id: "steven-spielberg",
+      name: "استیون اسپیلبرگ",
+      age: 79,
+      gender: "مرد",
+      famousMovie: "Schindler's List",
+      image: "../images/directors/steven-spielberg.jpg",
+    },
+    {
+      id: "greta-gerwig",
+      name: "گرتا گرویگ",
+      age: 42,
+      gender: "زن",
+      famousMovie: "Barbie",
+      image: "../images/directors/greta-gerwig.jpg",
+    },
+    {
+      id: "bong-joon-ho",
+      name: "بونگ جون-هو",
+      age: 56,
+      gender: "مرد",
+      famousMovie: "Parasite",
+      image: "../images/directors/bong-joon-ho.jpg",
+    },
+    {
+      id: "guillermo-del-toro",
+      name: "گیلرمو دل تورو",
+      age: 61,
+      gender: "مرد",
+      famousMovie: "Pan's Labyrinth",
+      image: "../images/directors/guillermo-del-toro.jpg",
+    },
+    {
+      id: "alfonso-cuaron",
+      name: "آلفونسو کوارون",
+      age: 64,
+      gender: "مرد",
+      famousMovie: "Roma",
+      image: "../images/directors/alfonso-cuaron.jpg",
+    },
+    {
+      id: "chloe-zhao",
+      name: "کلویی ژائو",
+      age: 43,
+      gender: "زن",
+      famousMovie: "Nomadland",
+      image: "../images/directors/chloe-zhao.jpg",
+    },
+  ];
+
+  // ---------- جستجو و فیلتر کارگردان‌ها (فیلتر زنده با تایپ) ----------
+  const directorSearchInput = document.getElementById("director-search");
+  const directorsGrid = document.getElementById("top-directors-grid");
+
+  const favoriteDirectorsKey = "favoriteDirectors";
+  let favoriteDirectors =
+    JSON.parse(localStorage.getItem(favoriteDirectorsKey)) || [];
+
+  let currentDirectorSearch = "";
+
+  function filterAndRenderDirectors() {
+    if (!directorsGrid) return;
+
+    directorsGrid.innerHTML = "";
+
+    directorsData.forEach((director) => {
+      const matchesSearch = director.name
+        .toLowerCase()
+        .includes(currentDirectorSearch.toLowerCase());
+      const matchesGender =
+        currentGender === "all" || director.gender === currentGender;
+
+      if (matchesSearch && matchesGender) {
+        const card = document.createElement("a");
+        card.href = `../pages/director-detail.html?id=${director.id}`;
+        card.className = "director-card";
+        card.dataset.directorId = director.id;
+
+        card.innerHTML = `
+          <div class="director-card__heart">
+            <svg viewBox="0 0 24 24" class="heart-icon">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <div class="director-card__image">
+            <img src="${director.image}" alt="${director.name}" />
+          </div>
+          <div class="director-card__info">
+            <h3 class="director-card__name">${director.name}</h3>
+            <p class="director-card__details">سن: ${director.age} | ${director.gender}</p>
+            <p class="director-card__famous"> ${director.famousMovie}</p>
+          </div>
+        `;
+
+        directorsGrid.appendChild(card);
+      }
+    });
+
+    // اعمال وضعیت علاقه‌مندی‌ها
+    document.querySelectorAll(".director-card").forEach((card) => {
+      const directorId = card.dataset.directorId;
+      const heartContainer = card.querySelector(".director-card__heart");
+
+      if (favoriteDirectors.includes(directorId)) {
+        heartContainer.classList.add("favorited");
+      }
+
+      heartContainer.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (favoriteDirectors.includes(directorId)) {
+          favoriteDirectors = favoriteDirectors.filter(
+            (id) => id !== directorId
+          );
+          heartContainer.classList.remove("favorited");
+        } else {
+          favoriteDirectors.push(directorId);
+          heartContainer.classList.add("favorited");
+        }
+
+        localStorage.setItem(
+          favoriteDirectorsKey,
+          JSON.stringify(favoriteDirectors)
+        );
+      });
+    });
+  }
+
+  if (directorSearchInput) {
+    directorSearchInput.addEventListener("input", (e) => {
+      currentDirectorSearch = e.target.value.trim();
+      filterAndRenderDirectors();
+    });
+  }
+
+  genderRadios.forEach((radio) => {
+    radio.addEventListener("change", (e) => {
+      currentGender = e.target.value;
+      filterAndRenderDirectors();
+    });
+  });
+
+  // رندر اولیه کارگردان‌ها
+  filterAndRenderDirectors();
+
+  // ---------- رندر فیلم‌های مورد علاقه ----------
+  const favoriteMoviesGrid = document.getElementById("favorite-movies-grid");
+  const noMoviesMessage = document.getElementById("no-favorites-message");
+
+  if (favoriteMoviesGrid) {
+    const favoriteMoviesKey = "favoriteMovies";
+    let favoriteMovies =
+      JSON.parse(localStorage.getItem(favoriteMoviesKey)) || [];
+
+    if (favoriteMovies.length === 0) {
+      favoriteMoviesGrid.innerHTML = "";
+      if (noMoviesMessage) noMoviesMessage.style.display = "block";
+    } else {
+      if (noMoviesMessage) noMoviesMessage.style.display = "none";
+      favoriteMoviesGrid.innerHTML = "";
+
+      favoriteMovies.forEach((movieId) => {
+        const movie = topMoviesData.find((m) => m.id === movieId);
+        if (movie) {
+          const card = document.createElement("a");
+          card.href = `../pages/movie-detail.html?id=${movie.id}`;
+          card.className = "movie-card";
+
+          card.innerHTML = `
+            <div class="movie-card__image">
+              <img src="${movie.poster}" alt="${movie.alt}" />
+            </div>
+            <div class="movie-card__info">
+              <h3 class="movie-card__name">${movie.title}</h3>
+              <p class="movie-card__year">${movie.year}</p>
+            </div>
+          `;
+
+          favoriteMoviesGrid.appendChild(card);
+        }
+      });
+    }
+  }
+
+  // ---------- رندر بازیگران مورد علاقه ----------
+  const favoriteActorsGrid = document.getElementById("favorite-actors-grid");
+  const noActorsMessage = document.getElementById("no-favorites-message");
+
+  if (favoriteActorsGrid) {
+    if (favoriteActors.length === 0) {
+      favoriteActorsGrid.innerHTML = "";
+      if (noActorsMessage) noActorsMessage.style.display = "block";
+    } else {
+      if (noActorsMessage) noActorsMessage.style.display = "none";
+      favoriteActorsGrid.innerHTML = "";
+
+      favoriteActors.forEach((actorId) => {
+        const actor = actorsData.find((a) => a.id === actorId);
+        if (actor) {
+          const card = document.createElement("a");
+          card.href = `../pages/actor-detail.html?id=${actor.id}`;
+          card.className = "actor-card";
+
+          card.innerHTML = `
+            <div class="actor-card__heart">
+              <svg viewBox="0 0 24 24" class="heart-icon">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </div>
+            <div class="actor-card__image">
+              <img src="${actor.image}" alt="${actor.name}" />
+            </div>
+            <div class="actor-card__info">
+              <h3 class="actor-card__name">${actor.name}</h3>
+              <p class="actor-card__details">سن: ${actor.age} | ${actor.gender}</p>
+              <p class="actor-card__famous">${actor.famousMovie}</p>
+            </div>
+          `;
+
+          favoriteActorsGrid.appendChild(card);
+        }
+      });
+    }
+  }
+
+  // ---------- رندر کارگردان‌های مورد علاقه ----------
+  const favoriteDirectorsGrid = document.getElementById(
+    "favorite-directors-grid"
+  );
+  const noDirectorsMessage = document.getElementById("no-favorites-message");
+
+  if (favoriteDirectorsGrid) {
+    if (favoriteDirectors.length === 0) {
+      favoriteDirectorsGrid.innerHTML = "";
+      if (noDirectorsMessage) noDirectorsMessage.style.display = "block";
+    } else {
+      if (noDirectorsMessage) noDirectorsMessage.style.display = "none";
+      favoriteDirectorsGrid.innerHTML = "";
+
+      favoriteDirectors.forEach((directorId) => {
+        const director = directorsData.find((d) => d.id === directorId);
+        if (director) {
+          const card = document.createElement("a");
+          card.href = `../pages/director-detail.html?id=${director.id}`;
+          card.className = "director-card";
+
+          card.innerHTML = `
+            <div class="director-card__heart">
+              <svg viewBox="0 0 24 24" class="heart-icon">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </div>
+            <div class="director-card__image">
+              <img src="${director.image}" alt="${director.name}" />
+            </div>
+            <div class="director-card__info">
+              <h3 class="director-card__name">${director.name}</h3>
+              <p class="director-card__details">سن: ${director.age} | ${director.gender}</p>
+              <p class="director-card__famous">${director.famousMovie}</p>
+            </div>
+          `;
+
+          favoriteDirectorsGrid.appendChild(card);
+        }
+      });
+    }
+  }
+});

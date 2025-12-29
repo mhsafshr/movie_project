@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مووا | کارگردان‌های مورد علاقه</title>
+    <link rel="stylesheet" href="../style/index.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="site-header">
+      <div class="container">
+        <a href="../index.html" class="logo">مووا</a>
+
+        <nav class="nav">
+          <a href="../pages/all-journal.html" class="nav__link">ژورنال‌ها</a>
+          <a href="../pages/all-movies.html" class="nav__link">فیلم‌ها</a>
+          <a href="../pages/all-actors.html" class="nav__link">بازیگران</a>
+          <a href="../pages/all-directors.html" class="nav__link"
+            >کارگردان‌ها</a
+          >
+        </nav>
+
+        <div class="header-search">
+          <form name="search" role="search">
+            <input
+              type="text"
+              id="search-input"
+              class="header-search__input"
+              placeholder="دنبال چه فیلمی هستی؟"
+              autocomplete="off"
+            />
+          </form>
+          <div class="header-search__icon" aria-label="جستجو">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#e7cf56"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </div>
+          <div class="search-results" id="search-results"></div>
+        </div>
+
+        <div class="auth">
+          <!-- محتوای ورود/خروج توسط JS مدیریت می‌شود -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Favorite Directors Section -->
+    <section class="favorite-directors">
+      <div class="container">
+        <!-- جستجو و فیلتر جنسیت -->
+        <div class="directors-controls">
+          <div class="directors-search">
+            <input
+              type="text"
+              id="director-search"
+              class="directors-search__input"
+              placeholder="جستجوی کارگردان..."
+            />
+            <div class="directors-search__icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#e7cf56"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="gender-filter">
+            <label>
+              <input type="radio" name="gender" value="all" checked />
+              همه
+            </label>
+            <label>
+              <input type="radio" name="gender" value="مرد" />
+              مرد
+            </label>
+            <label>
+              <input type="radio" name="gender" value="زن" />
+              زن
+            </label>
+          </div>
+        </div>
+
+        <div class="all-directors__grid" id="favorite-directors-grid">
+          <!-- Favorite directors will be dynamically inserted here by JavaScript -->
+        </div>
+
+        <p
+          class="no-favorites-message"
+          id="no-favorites-message"
+          style="
+            display: none;
+            text-align: center;
+            color: #bbbbbb;
+            margin-top: 4rem;
+            font-size: 1.5rem;
+          "
+        >
+          هنوز هیچ کارگردانی به لیست مورد علاقه اضافه نشده است.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__section site-footer__section--watch">
+          <h3 class="site-footer__title">چی ببینیم؟</h3>
+          <ul class="site-footer__nav">
+            <li>
+              <a href="#" class="site-footer__link">فیلم‌های منتخب</a>
+            </li>
+            <li>
+              <a href="../pages/all-journal.html" class="site-footer__link">
+                ژورنال سینما
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="site-footer__section site-footer__section--about">
+          <h3 class="site-footer__title">مووا چیست؟</h3>
+          <p class="site-footer__about">
+            مووا جایی برای عاشقان سینماست؛ جایی که انتخاب فیلم ساده‌تر،
+            هوشمندانه‌تر و تماشای آن لذت‌بخش‌تر می‌شود.
+          </p>
+        </div>
+
+        <div
+          class="site-footer__section site-footer__section--auth site-footer__auth"
+        >
+          <div class="site-footer__logo-placeholder">
+            <img
+              src="../images/logo.jpg"
+              alt="لوگو"
+              class="site-footer__logo"
+            />
+          </div>
+          <!-- محتوای ورود/خروج توسط JS مدیریت می‌شود -->
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+/* استایل‌های بخش کارگردان‌های برتر (کپی از بازیگران با تغییرات جزئی) */
+.top-directors {
+  padding: 20px 0;
+  background: #0a0a0a;
+}
+
+.top-directors .container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 1400px) {
+  .top-directors .container {
+    padding: 0 70px;
+  }
+}
+
+@media (max-width: 992px) {
+  .top-directors .container {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-directors .container {
+    padding: 0 30px;
+  }
+}
+
+.top-directors__title {
+  margin: 0 0 4rem 0;
+}
+
+.directors-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 2rem 0 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.directors-search {
+  position: relative;
+  max-width: 380px;
+  width: 100%;
+}
+
+.directors-search__input {
+  padding: 8px 56px 8px 24px;
+  width: 320px;
+  height: 40px;
+  background: rgba(59, 54, 64, 0.6);
+  backdrop-filter: blur(1px);
+  border: 2px solid #e7cf56;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1.35rem;
+  color: #e7cf56;
+  outline: none;
+  transition: all 0.4s ease;
+  box-sizing: border-box;
+}
+
+.directors-search__input::placeholder {
+  color: rgba(231, 207, 86, 0.7);
+}
+
+.directors-search__input:focus {
+  width: 380px;
+  background: rgba(59, 54, 64, 0.95);
+  box-shadow: 0 0 20px rgba(231, 207, 86, 0.3);
+
+  @media (max-width: 1400px) {
+    width: 340px;
+  }
+  @media (max-width: 1200px) {
+    width: 300px;
+  }
+  @media (max-width: 992px) {
+    width: 280px;
+  }
+}
+
+.directors-search__icon {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.directors-search__icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.directors-search__input:focus ~ .directors-search__icon {
+  opacity: 0.7;
+  transform: translateY(-50%) scale(0.9);
+}
+
+.gender-filter {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.gender-filter label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.gender-filter input[type="radio"] {
+  accent-color: #e7cf56;
+}
+
+.all-directors__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.5rem;
+  padding-top: 1rem;
+}
+
+.director-card {
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  aspect-ratio: 2 / 3;
+}
+
+.director-card:hover {
+  transform: translateY(-16px) scale(1.03);
+}
+
+.director-card:hover .director-card__name,
+.director-card:hover .director-card__details,
+.director-card:hover .director-card__famous {
+  color: #e7cf56;
+}
+
+.director-card:hover img {
+  transform: scale(1.1);
+}
+
+.director-card__image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.director-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.director-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.95) 0%,
+    rgba(10, 10, 10, 0.7) 20%,
+    rgba(10, 10, 10, 0.4) 40%,
+    rgba(10, 10, 10, 0.1) 60%,
+    transparent 90%
+  );
+  opacity: 1;
+  transition: background 0.5s ease;
+  pointer-events: none;
+}
+
+.director-card:hover .director-card__image::after {
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.98) 0%,
+    rgba(10, 10, 10, 0.8) 20%,
+    rgba(10, 10, 10, 0.5) 40%,
+    rgba(10, 10, 10, 0.2) 60%,
+    transparent 90%
+  );
+}
+
+.director-card__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1.5rem 1.8rem;
+  z-index: 2;
+}
+
+.director-card__name {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.4rem 0;
+  transition: color 0.4s ease;
+}
+
+.director-card__details {
+  font-size: 1.15rem;
+  color: #bbbbbb;
+  margin: 0 0 0.4rem 0;
+  transition: color 0.4s ease;
+}
+
+.director-card__famous {
+  font-size: 1.15rem;
+  color: #bbbbbb;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+.director-card__heart {
+  position: absolute;
+  bottom: 100px;
+  left: 20px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.director-card__heart:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.director-card__heart .heart-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+.director-card__heart.favorited .heart-icon {
+  fill: #e74c3c;
+  stroke: #e74c3c;
+}
