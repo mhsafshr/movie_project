@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (authDiv) {
     if (userLoggedIn) {
       authDiv.innerHTML = `
-        <a href="./pages/profile.html" class="auth__svg">
+        <a href="/movie_project/front/pages/profile.html" class="auth__svg">
           <svg width="40" height="40" viewBox="0 0 24 24" fill="#E7CF56" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="7.25" r="5.73"/>
             <path d="M1.5,23.48l.37-2.05A10.3,10.3,0,0,1,12,13h0a10.3,10.3,0,0,1,10.13,8.45l.37,2.05"/>
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bgImage: "../images/dune-part-2-bg.jpg",
         tags: ["علمی-تخیلی", "ماجراجویی", "حماسی", "درام", "بیابان"],
       },
-      "oppenheimer": {
+      oppenheimer: {
         title: "Oppenheimer",
         year: "2023",
         ratingBadge: "R",
@@ -811,6 +811,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Oppenheimer",
       image: "../images/directors/christopher-nolan.jpg",
+      bio: "کارگردان و فیلمنامه‌نویس انگلیسی-آمریکایی که به خاطر روایت‌های غیرخطی، پیچش‌های زمانی و فیلم‌های فکری مثل Inception و Interstellar شناخته می‌شود.",
     },
     {
       id: "denis-villeneuve",
@@ -819,6 +820,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Dune: Part Two",
       image: "../images/directors/denis-villeneuve.jpg",
+      bio: "کارگردان کانادایی با سبک بصری سنگین و جدی که در ژانر علمی‌تخیلی و درام‌های عمیق مثل Arrival و Dune می‌درخشد.",
     },
     {
       id: "quentin-tarantino",
@@ -827,6 +829,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Pulp Fiction",
       image: "../images/directors/quentin-tarantino.jpg",
+      bio: "کارگردانی با سبک خاص، دیالوگ‌های ماندگار و خشونت اغراق‌شده که سینمای مستقل هالیوود را متحول کرده است.",
     },
     {
       id: "martin-scorsese",
@@ -835,6 +838,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Goodfellas",
       image: "../images/directors/martin-scorsese.jpg",
+      bio: "یکی از بزرگ‌ترین کارگردان‌های تاریخ سینما که بیشتر به خاطر فیلم‌های جنایی، شخصیت‌محور و واقع‌گرایانه شناخته می‌شود.",
     },
     {
       id: "steven-spielberg",
@@ -843,6 +847,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Schindler's List",
       image: "../images/directors/steven-spielberg.jpg",
+      bio: "کارگردان افسانه‌ای هالیوود که هم در بلاک‌باسترها و هم در درام‌های انسانی عمیق، آثار ماندگار خلق کرده است.",
     },
     {
       id: "greta-gerwig",
@@ -851,6 +856,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "زن",
       famousMovie: "Barbie",
       image: "../images/directors/greta-gerwig.jpg",
+      bio: "کارگردان و بازیگر آمریکایی که با روایت‌های زن‌محور و صمیمی مثل Lady Bird و Barbie به شهرت رسید.",
     },
     {
       id: "bong-joon-ho",
@@ -859,6 +865,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Parasite",
       image: "../images/directors/bong-joon-ho.jpg",
+      bio: "کارگردان کره‌ای که با ترکیب طنز تلخ، نقد اجتماعی و ژانرهای مختلف، سینمای جهان را غافلگیر کرده است.",
     },
     {
       id: "guillermo-del-toro",
@@ -867,6 +874,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Pan's Labyrinth",
       image: "../images/directors/guillermo-del-toro.jpg",
+      bio: "کارگردانی با دنیایی فانتزی و تاریک که هیولاها را به شکلی انسانی و احساسی به تصویر می‌کشد.",
     },
     {
       id: "alfonso-cuaron",
@@ -875,6 +883,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Roma",
       image: "../images/directors/alfonso-cuaron.jpg",
+      bio: "کارگردان مکزیکی با سبک واقع‌گرایانه و پلان‌سکانس‌های معروف که درام‌های انسانی عمیق می‌سازد.",
     },
     {
       id: "chloe-zhao",
@@ -883,6 +892,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "زن",
       famousMovie: "Nomadland",
       image: "../images/directors/chloe-zhao.jpg",
+      bio: "کارگردان چینی-آمریکایی که با روایت‌های مینیمال و واقع‌گرایانه از زندگی انسان‌های عادی شناخته می‌شود.",
     },
   ];
 
@@ -1036,25 +1046,48 @@ document.addEventListener("DOMContentLoaded", () => {
       favoriteActors.forEach((actorId) => {
         const actor = actorsData.find((a) => a.id === actorId);
         if (actor) {
-          const card = document.createElement("a");
-          card.href = `../pages/actor-detail.html?id=${actor.id}`;
+          const card = document.createElement("div");
           card.className = "actor-card";
+          card.dataset.actorId = actor.id;
 
           card.innerHTML = `
-            <div class="actor-card__heart">
-              <svg viewBox="0 0 24 24" class="heart-icon">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-              </svg>
-            </div>
-            <div class="actor-card__image">
-              <img src="${actor.image}" alt="${actor.name}" />
-            </div>
-            <div class="actor-card__info">
-              <h3 class="actor-card__name">${actor.name}</h3>
-              <p class="actor-card__details">سن: ${actor.age} | ${actor.gender}</p>
-              <p class="actor-card__famous">${actor.famousMovie}</p>
-            </div>
-          `;
+      <div class="actor-card__heart favorited">
+        <svg viewBox="0 0 24 24" class="heart-icon">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+
+      <a href="../pages/actor-detail.html?id=${actor.id}">
+        <div class="actor-card__image">
+          <img src="${actor.image}" alt="${actor.name}" />
+        </div>
+        <div class="actor-card__info">
+          <h3 class="actor-card__name">${actor.name}</h3>
+          <p class="actor-card__details">سن: ${actor.age} | ${actor.gender}</p>
+          <p class="actor-card__famous">${actor.famousMovie}</p>
+        </div>
+      </a>
+    `;
+
+          // 🔥 حذف زنده از علاقه‌مندی
+          card
+            .querySelector(".actor-card__heart")
+            .addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+
+              favoriteActors = favoriteActors.filter((id) => id !== actor.id);
+              localStorage.setItem(
+                "favoriteActors",
+                JSON.stringify(favoriteActors)
+              );
+
+              card.remove(); // 👈 حذف از صفحه بدون رفرش
+
+              if (favoriteActors.length === 0 && noActorsMessage) {
+                noActorsMessage.style.display = "block";
+              }
+            });
 
           favoriteActorsGrid.appendChild(card);
         }
@@ -1079,16 +1112,18 @@ document.addEventListener("DOMContentLoaded", () => {
       favoriteDirectors.forEach((directorId) => {
         const director = directorsData.find((d) => d.id === directorId);
         if (director) {
-          const card = document.createElement("a");
-          card.href = `../pages/director-detail.html?id=${director.id}`;
+          const card = document.createElement("div");
           card.className = "director-card";
+          card.dataset.directorId = director.id;
 
           card.innerHTML = `
-            <div class="director-card__heart">
-              <svg viewBox="0 0 24 24" class="heart-icon">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-              </svg>
-            </div>
+          <div class="director-card__heart favorited">
+            <svg viewBox="0 0 24 24" class="heart-icon">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+
+          <a href="../pages/director-detail.html?id=${director.id}">
             <div class="director-card__image">
               <img src="${director.image}" alt="${director.name}" />
             </div>
@@ -1097,7 +1132,31 @@ document.addEventListener("DOMContentLoaded", () => {
               <p class="director-card__details">سن: ${director.age} | ${director.gender}</p>
               <p class="director-card__famous">${director.famousMovie}</p>
             </div>
-          `;
+          </a>
+        `;
+
+          // 🔥 حذف زنده از علاقه‌مندی‌ها
+          card
+            .querySelector(".director-card__heart")
+            .addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+
+              favoriteDirectors = favoriteDirectors.filter(
+                (id) => id !== director.id
+              );
+
+              localStorage.setItem(
+                "favoriteDirectors",
+                JSON.stringify(favoriteDirectors)
+              );
+
+              card.remove(); // 👈 حذف آنی از صفحه
+
+              if (favoriteDirectors.length === 0 && noDirectorsMessage) {
+                noDirectorsMessage.style.display = "block";
+              }
+            });
 
           favoriteDirectorsGrid.appendChild(card);
         }
