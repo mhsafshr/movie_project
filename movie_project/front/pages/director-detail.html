@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مووا | جزئیات کارگردان</title>
+    <link rel="stylesheet" href="../style/index.css" />
+  </head>
+  <body class="director-detail-page">
+    <!-- Header Section -->
+    <header class="site-header">
+      <div class="container">
+        <a href="../index.html" class="logo">مووا</a>
+
+        <nav class="nav">
+          <a href="../pages/all-journal.html" class="nav__link">ژورنال‌ها</a>
+          <a href="../pages/all-movies.html" class="nav__link">فیلم‌ها</a>
+          <a href="../pages/all-actors.html" class="nav__link">بازیگران</a>
+          <a href="../pages/all-directors.html" class="nav__link">کارگردان‌ها</a>
+        </nav>
+
+        <div class="header-search">
+          <form name="search" role="search">
+            <input
+              type="text"
+              id="search-input"
+              class="header-search__input"
+              placeholder="دنبال چه بازیگری هستی؟"
+              autocomplete="off"
+            />
+          </form>
+          <div class="header-search__icon" aria-label="جستجو">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#e7cf56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <div class="search-results" id="search-results"></div>
+        </div>
+
+        <div class="auth">
+          <!-- محتوای ورود/خروج توسط JS مدیریت می‌شود -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Director Detail Hero -->
+    <section class="director-hero">
+      <div class="container">
+        <div class="director-hero__card">
+          <div class="director-hero__image">
+            <img
+              src="../images/directors/default.jpg"
+              alt="عکس کارگردان"
+              class="director-hero__img"
+              id="director-poster"
+            />
+          </div>
+
+          <div class="director-hero__info">
+            <h1 class="director-hero__name" id="director-name">نام کارگردان</h1>
+
+            <p class="director-hero__age" id="director-age">
+              سن: <span id="director-age-value">۰۰</span> | جنسیت: <span id="director-gender">—</span>
+            </p>
+
+            <div class="director-hero__famous">
+              <span class="director-hero__famous-label">معروف‌ترین فیلم:</span>
+              <span class="director-hero__famous-value" id="director-famous-movie">—</span>
+            </div>
+
+            <p class="director-hero__bio" id="director-bio">
+              بیوگرافی و توضیحات کارگردان در اینجا نمایش داده می‌شود.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>

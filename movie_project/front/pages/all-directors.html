@@ -10,13 +10,15 @@
     <!-- Header Section -->
     <header class="site-header">
       <div class="container">
-        <a href="index.html" class="logo">مووا</a>
+        <a href="../index.html" class="logo">مووا</a>
 
         <nav class="nav">
-          <a href="./pages/all-journal.html" class="nav__link">ژورنال‌ها</a>
-          <a href="./pages/all-movies.html" class="nav__link">فیلم‌ها</a>
-          <a href="./pages/all-actors.html" class="nav__link">بازیگران</a>
-          <a href="./pages/all-directors.html" class="nav__link">کارگردان ها</a>
+          <a href="../pages/all-journal.html" class="nav__link">ژورنال‌ها</a>
+          <a href="../pages/all-movies.html" class="nav__link">فیلم‌ها</a>
+          <a href="../pages/all-actors.html" class="nav__link">بازیگران</a>
+          <a href="../pages/all-directors.html" class="nav__link"
+            >کارگردان‌ها</a
+          >
         </nav>
 
         <div class="header-search">
@@ -25,20 +27,29 @@
               type="text"
               id="search-input"
               class="header-search__input"
-              placeholder="دنبال چه فیلمی هستی؟"
+              placeholder="دنبال چه بازیگری هستی؟"
               autocomplete="off"
             />
           </form>
           <div class="header-search__icon" aria-label="جستجو">
-            <!-- icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#e7cf56"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
           </div>
           <div class="search-results" id="search-results"></div>
         </div>
 
-        <div class="auth" id="auth-container">
-          <a href="./pages/login.html" class="auth__link">ورود</a>
-          <span class="auth__separator">|</span>
-          <a href="./pages/signup.html" class="auth__link">ثبت‌نام</a>
+        <div class="auth">
+          <!-- محتوای ورود/خروج توسط JS مدیریت می‌شود -->
         </div>
       </div>
     </header>
@@ -99,6 +110,7 @@
         <div class="site-footer__section site-footer__section--watch">
           <h3 class="site-footer__title">چی ببینیم؟</h3>
           <ul class="site-footer__nav">
+            <li></li>
             <li>
               <a href="#" class="site-footer__link">فیلم‌های منتخب</a>
             </li>
@@ -123,12 +135,15 @@
         >
           <div class="site-footer__logo-placeholder">
             <img
-              src="../images/logo.jpg"
-              alt="لوگو"
+              src="/movie_project/front/images/logo.jpg"
+              alt="لوگوی مووا"
               class="site-footer__logo"
             />
           </div>
-          <!-- محتوای ورود/خروج توسط JS مدیریت می‌شود -->
+          <a href="../pages/login.html" class="site-footer__auth-link">ورود</a>
+          <a href="../pages/signup.html" class="site-footer__auth-link">
+            ثبت‌نام
+          </a>
         </div>
       </div>
     </footer>

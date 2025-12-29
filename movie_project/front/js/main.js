@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     } else {
       authDiv.innerHTML = `
-        <a href="./pages/login.html" class="auth__link">ورود</a>
+        <a href="/movie_project/front/pages/login.html" class="auth__link">ورود</a>
         <span class="auth__separator">|</span>
-        <a href="./pages/signup.html" class="auth__link">ثبت‌نام</a>
+        <a href="/movie_project/front/pages/signup.html" class="auth__link">ثبت‌نام</a>
       `;
     }
   }
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="site-footer__logo-placeholder">
           <img src="../images/logo.jpg" alt="لوگو" class="site-footer__logo" />
         </div>
-        <a href="./pages/login.html" class="site-footer__auth-link">ورود</a>
-        <a href="./pages/signup.html" class="site-footer__auth-link">ثبت‌نام</a>
+        <a href="/movie_project/front/pages/login.html" class="site-footer__auth-link">ورود</a>
+        <a href="/movie_project/front/pages/signup.html" class="site-footer__auth-link">ثبت‌نام</a>
       `;
     }
   }
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bgImage: "../images/dune-part-2-bg.jpg",
         tags: ["علمی-تخیلی", "ماجراجویی", "حماسی", "درام", "بیابان"],
       },
-      oppenheimer: {
+      "oppenheimer": {
         title: "Oppenheimer",
         year: "2023",
         ratingBadge: "R",
@@ -124,6 +124,76 @@ document.addEventListener("DOMContentLoaded", () => {
         bgImage: "../images/matrix-bg.jpg",
         tags: ["علمی-تخیلی", "اکشن", "سایبرپانک", "فلسفه", "واقعیت مجازی"],
       },
+      "avatar-2": {
+        title: "Avatar: The Way of Water",
+        year: "2022",
+        ratingBadge: "PG-13",
+        duration: "3h 12m",
+        score: "7.6",
+        description:
+          "جیک سالی و خانواده‌اش در پاندورا با تهدید جدیدی روبرو می‌شوند و برای بقا به اقوام دریایی متاوکینا پناه می‌برند.",
+        director: "جیمز کامرون",
+        writers: "جیمز کامرون, Rick Jaffa, Amanda Silver",
+        stars: "سم ورتینگتون، زویی سالدانا، سیگورنی ویور",
+        bgImage: "../images/avatar2-bg.jpg",
+        tags: ["علمی-تخیلی", "ماجراجویی", "اکشن", "فانتزی", "پاندورا"],
+      },
+      "the-batman": {
+        title: "The Batman",
+        year: "2022",
+        ratingBadge: "PG-13",
+        duration: "2h 56m",
+        score: "7.8",
+        description:
+          "بروس وین در سال دوم مبارزه با جرم در گاتهام، با ریدلر مواجه می‌شود و رازهای تاریک شهر را کشف می‌کند.",
+        director: "مت ریوز",
+        writers: "مت ریوز, Peter Craig",
+        stars: "رابرت پتینسون، زویی کراویتز، پل دانو",
+        bgImage: "../images/thebatman-bg.jpg",
+        tags: ["اکشن", "جنایی", "درام", "ابرقهرمانی", "کارآگاهی"],
+      },
+      "guardians-3": {
+        title: "Guardians of the Galaxy Vol. 3",
+        year: "2023",
+        ratingBadge: "PG-13",
+        duration: "2h 30m",
+        score: "7.9",
+        description:
+          "نگهبانان کهکشان برای نجات راکت و مقابله با گذشته او، مأموریتی خطرناک را آغاز می‌کنند.",
+        director: "جیمز گان",
+        writers: "جیمز گان",
+        stars: "کریس پرت، زویی سالدانا، دیو باتیستا",
+        bgImage: "../images/guardians3-bg.jpg",
+        tags: ["علمی-تخیلی", "اکشن", "کمدی", "ماجراجویی", "مارول"],
+      },
+      "john-wick-4": {
+        title: "John Wick: Chapter 4",
+        year: "2023",
+        ratingBadge: "R",
+        duration: "2h 49m",
+        score: "7.7",
+        description:
+          "جان ویک با مارکوئیس دو گرامونت و جدول بالا روبرو می‌شود تا آزادی خود را به دست آورد.",
+        director: "چاد استاهلسکی",
+        writers: "Shay Hatten, Michael Finch",
+        stars: "کیانو ریوز، دان یین، بیل اسکاشگورد",
+        bgImage: "../images/johnwick4-bg.jpg",
+        tags: ["اکشن", "هیجان‌انگیز", "جنایی", "انتقام", "جان ویک"],
+      },
+      "black-panther-2": {
+        title: "Black Panther: Wakanda Forever",
+        year: "2022",
+        ratingBadge: "PG-13",
+        duration: "2h 41m",
+        score: "6.7",
+        description:
+          "واکاندا پس از مرگ تی‌چالا با تهدید نامور مواجه می‌شود و باید برای حفاظت از خود بجنگد.",
+        director: "رایان کوگلر",
+        writers: "رایان کوگلر, Joe Robert Cole",
+        stars: "لتیشیا رایت، لوپیتا نیونگو، تنوچ هوئرتا",
+        bgImage: "../images/blackpanther2-bg.jpg",
+        tags: ["اکشن", "ماجراجویی", "درام", "ابرقهرمانی", "مارول"],
+      },
     };
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -131,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (moviesData[movieId]) {
       const movie = moviesData[movieId];
-      document.title = `${movie.title} - مووا`;
+      document.title = `${movie.title} | مووا`;
       document.getElementById("movie-title").textContent = movie.title;
       document.getElementById("movie-year").textContent = `.${movie.year}`;
       document.getElementById(
@@ -446,70 +516,71 @@ document.addEventListener("DOMContentLoaded", () => {
       id: "interstellar",
       title: "Interstellar",
       year: "2014",
-      poster: "../front/images/interstellar.jpg",
+      poster: "/movie_project/front/images/interstellar.jpg",
       alt: "Interstellar movie poster",
     },
     {
       id: "inception",
       title: "Inception",
       year: "2010",
-      poster: "../front/images/inception.jpg",
+      poster: "/movie_project/front/images/inception.jpg",
       alt: "Inception movie poster",
     },
     {
       id: "dune-part-2",
       title: "Dune: Part Two",
       year: "2024",
-      poster: "../front/images/Dune part 2.jpg",
+      poster: "/movie_project/front/images/Dune part 2.jpg",
       alt: "Dune: Part Two movie poster",
     },
+
     {
       id: "oppenheimer",
       title: "Oppenheimer",
       year: "2023",
-      poster: "../front/images/oppenheimer.jpg",
+      poster: "/movie_project/front/images/oppenheimer.jpg",
       alt: "Oppenheimer movie poster",
     },
     {
       id: "the-matrix",
       title: "The Matrix",
       year: "1999",
-      poster: "../front/images/the matrix .jpg",
+      poster: "/movie_project/front/images/the-matrix.jpg",
       alt: "The Matrix movie poster",
     },
     {
       id: "avatar-2",
       title: "Avatar: The Way of Water",
       year: "2022",
-      poster: "../front/images/avatar2.jpg",
+      poster: "/movie_project/front/images/avatar2.jpg",
       alt: "Avatar: The Way of Water movie poster",
     },
     {
       id: "the-batman",
       title: "The Batman",
       year: "2022",
-      poster: "../front/images/thebatman.jpg",
+      poster: "/movie_project/front/images/thebatman.jpg",
       alt: "The Batman movie poster",
     },
     {
       id: "guardians-3",
       title: "Guardians of the Galaxy Vol. 3",
       year: "2023",
-      poster: "../front/images/guardians3.jpg",
+      poster: "/movie_project/front/images/guardians3.jpg",
       alt: "Guardians of the Galaxy Vol. 3 movie poster",
     },
     {
       id: "john-wick-4",
       title: "John Wick: Chapter 4",
       year: "2023",
-      poster: "../front/images/johnwick4.jpg",
+      poster: "/movie_project/front/images/johnwick4.jpg",
       alt: "John Wick: Chapter 4 movie poster",
     },
     {
       id: "black-panther-2",
       title: "Black Panther: Wakanda Forever",
       year: "2022",
-      poster: "../front/images/blackpanther2.jpg",
+      poster: "/movie_project/front/images/blackpanther2.jpg",
       alt: "Black Panther: Wakanda Forever movie poster",
     },
   ];
@@ -528,9 +599,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     moviesToShow.forEach((movie) => {
       const card = document.createElement("a");
-      card.href = `./pages/movie-detail.html?id=${movie.id}`;
+      card.href = `/movie_project/front//pages/movie-detail.html?id=${movie.id}`;
       card.className = "movie-card";
-
       card.innerHTML = `
         <div class="movie-card__image">
           <img src="${movie.poster}" alt="${movie.alt}" />
@@ -554,6 +624,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Inception",
       image: "../images/actors/leonardo-dicaprio.jpg",
+      bio: "لئوناردو دی‌کاپریو بازیگر و تهیه‌کننده آمریکایی است که با نقش‌های پیچیده و همکاری با کارگردانان بزرگ مانند مارتین اسکورسیزی شناخته می‌شود. او برنده اسکار بهترین بازیگر مرد برای فیلم The Revenant شد.",
     },
     {
       id: "cillian-murphy",
@@ -562,6 +633,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Oppenheimer",
       image: "../images/actors/cillian-murphy.jpg",
+      bio: "سیلیان مورفی بازیگر ایرلندی است که با نقش‌های عمیق و چندلایه در فیلم‌های کریستوفر نولان مانند Oppenheimer و Peaky Blinders شهرت جهانی یافت.",
     },
     {
       id: "timothee-chalamet",
@@ -570,6 +642,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Dune: Part Two",
       image: "../images/actors/timothee-chalamet.jpg",
+      bio: "تیموتی شالامه بازیگر جوان آمریکایی-فرانسوی است که با نقش‌های احساسی در Call Me by Your Name و Dune به شهرت رسید و یکی از ستارگان نسل جدید هالیوود محسوب می‌شود.",
     },
     {
       id: "keanu-reeves",
@@ -578,6 +651,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "The Matrix",
       image: "../images/actors/keanu-reeves.jpg",
+      bio: "کیانو ریوز بازیگر کانادایی است که با نقش نئو در سری Matrix و جان ویک به نماد اکشن مدرن تبدیل شد. او به خاطر شخصیت فروتن و کارهای خیریه‌اش نیز محبوب است.",
     },
     {
       id: "matthew-mcconaughey",
@@ -586,6 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Interstellar",
       image: "../images/actors/matthew-mcconaughey.jpg",
+      bio: "متیو مک‌کانهی بازیگر آمریکایی است که پس از نقش‌های رمانتیک، با بازی در Dallas Buyers Club برنده اسکار شد و در Interstellar نقش ماندگاری ایفا کرد.",
     },
     {
       id: "scarlett-johansson",
@@ -594,6 +669,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "زن",
       famousMovie: "Avengers: Endgame",
       image: "../images/actors/scarlett-johansson.jpg",
+      bio: "اسکارلت جوهانسون بازیگر آمریکایی است که با نقش Black Widow در دنیای مارول و فیلم‌های مستقل مانند Marriage Story شناخته می‌شود. او یکی از پردرآمدترین بازیگران زن هالیوود است.",
     },
     {
       id: "robert-downey-jr",
@@ -602,6 +678,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "Iron Man",
       image: "../images/actors/robert-downey-jr.jpg",
+      bio: "رابرت داونی جونیور با نقش تونی استارک در Iron Man و سری Avengers دنیای سینمایی مارول را متحول کرد و پس از مشکلات شخصی، بازگشت درخشانی به هالیوود داشت.",
     },
     {
       id: "natalie-portman",
@@ -610,6 +687,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "زن",
       famousMovie: "Black Swan",
       image: "../images/actors/natalie-portman.jpg",
+      bio: "ناتالی پورتمن بازیگر و کارگردان آمریکایی-اسرائیلی است که با نقش در Black Swan برنده اسکار شد و در سری Thor نیز حضور موفقی داشت.",
     },
     {
       id: "christian-bale",
@@ -618,6 +696,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "مرد",
       famousMovie: "The Dark Knight",
       image: "../images/actors/christian-bale.jpg",
+      bio: "کریستین بیل بازیگر بریتانیایی است که با تغییرات فیزیکی شدید برای نقش‌ها (مانند Batman و The Machinist) و برنده شدن اسکار برای The Fighter شناخته می‌شود.",
     },
     {
       id: "emma-stone",
@@ -626,6 +705,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gender: "زن",
       famousMovie: "La La Land",
       image: "../images/actors/emma-stone.jpg",
+      bio: "اما استون بازیگر آمریکایی است که با نقش در La La Land برنده اسکار بهترین بازیگر زن شد و با کمدی‌های هوشمندانه‌اش محبوبیت زیادی کسب کرد.",
     },
   ];
 
@@ -655,7 +735,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (matchesSearch && matchesGender) {
         const card = document.createElement("a");
-        card.href = `./pages/actor-detail.html?id=${actor.id}`;
+        card.href = `actor-detail.html?id=${actor.id}`;
         card.className = "actor-card";
         card.dataset.actorId = actor.id;
 
@@ -1022,6 +1102,61 @@ document.addEventListener("DOMContentLoaded", () => {
           favoriteDirectorsGrid.appendChild(card);
         }
       });
+    }
+  }
+
+  // ---------- مدیریت صفحه جزئیات کارگردان ----------
+  if (document.querySelector(".director-detail-page")) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const directorId = urlParams.get("id");
+
+    const director = directorsData.find((d) => d.id === directorId);
+
+    if (director) {
+      document.title = `${director.name} - مووا`;
+
+      document.getElementById("director-name").textContent = director.name;
+      document.getElementById("director-age-value").textContent = director.age;
+      document.getElementById("director-gender").textContent = director.gender;
+      document.getElementById("director-famous-movie").textContent =
+        director.famousMovie;
+      document.getElementById("director-bio").textContent =
+        director.bio || "بیوگرافی در دسترس نیست.";
+
+      document.getElementById("director-poster").src = director.image;
+      document.getElementById("director-poster").alt = director.name;
+    } else {
+      document.getElementById("director-name").textContent =
+        "کارگردان یافت نشد";
+      document.getElementById("director-bio").textContent =
+        "اطلاعاتی برای این کارگردان موجود نیست.";
+    }
+  }
+
+  // ---------- مدیریت صفحه جزئیات بازیگر ----------
+  if (document.querySelector(".actor-detail-page")) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const actorId = urlParams.get("id");
+
+    const actor = actorsData.find((a) => a.id === actorId);
+
+    if (actor) {
+      document.title = `${actor.name} - مووا`;
+
+      document.getElementById("actor-name").textContent = actor.name;
+      document.getElementById("actor-age-value").textContent = actor.age;
+      document.getElementById("actor-gender").textContent = actor.gender;
+      document.getElementById("actor-famous-movie").textContent =
+        actor.famousMovie;
+      document.getElementById("actor-bio").textContent =
+        actor.bio || "بیوگرافی در دسترس نیست.";
+
+      document.getElementById("actor-poster").src = actor.image;
+      document.getElementById("actor-poster").alt = actor.name;
+    } else {
+      document.getElementById("actor-name").textContent = "بازیگر یافت نشد";
+      document.getElementById("actor-bio").textContent =
+        "اطلاعاتی برای این بازیگر موجود نیست.";
     }
   }
 });

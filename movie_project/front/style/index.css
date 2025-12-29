@@ -3475,6 +3475,252 @@ body {
   stroke: #e74c3c;
 }
 
+.director-detail-page {
+  background: #0a0a0a;
+}
+
+.director-hero {
+  padding: 0.5rem 0;
+  background: #000000;
+}
+.director-hero .container {
+  width: 100vw;
+  padding: 0 2rem;
+}
+.director-hero__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111111;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+  padding: 4rem;
+}
+@media (max-width: 992px) {
+  .director-hero__card {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+}
+.director-hero__image {
+  flex: 0 0 20%;
+  max-width: 500px;
+}
+@media (max-width: 992px) {
+  .director-hero__image {
+    flex: none;
+    margin-bottom: 3rem;
+    max-width: 400px;
+  }
+}
+@media (max-width: 576px) {
+  .director-hero__image {
+    max-width: 300px;
+  }
+}
+.director-hero__img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  display: block;
+}
+.director-hero__info {
+  flex: 1;
+  padding-right: 5rem;
+  color: #ffffff;
+}
+@media (max-width: 992px) {
+  .director-hero__info {
+    padding-right: 0;
+  }
+}
+.director-hero__name {
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  color: #ffffff;
+  line-height: 1.2;
+}
+.director-hero__age {
+  font-size: 1.8rem;
+  color: #bbbbbb;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+.director-hero__famous {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  margin-bottom: 3.5rem;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+.director-hero__famous-label {
+  opacity: 0.85;
+  margin-left: 0.8rem;
+}
+.director-hero__famous-value {
+  font-weight: 700;
+  color: #e7cf56;
+}
+.director-hero__bio {
+  font-size: 1.5rem;
+  line-height: 1.9;
+  color: #dddddd;
+  max-width: 900px;
+  margin: 0;
+}
+@media (max-width: 992px) {
+  .director-hero__bio {
+    font-size: 1.4rem;
+  }
+}
+
+/* ریسپانسیو اضافی */
+@media (max-width: 1200px) {
+  .director-hero__info {
+    padding-right: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  .director-hero {
+    padding: 4rem 0 3rem;
+  }
+  .director-hero__card {
+    padding: 2.5rem 1.5rem;
+  }
+}
+.actor-detail-page {
+  background: #0a0a0a;
+}
+
+.actor-hero {
+  padding: 0.5rem 0;
+  background: #000000;
+}
+.actor-hero .container {
+  width: 100vw;
+  padding: 0 2rem;
+}
+.actor-hero__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111111;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+  padding: 4rem;
+}
+@media (max-width: 992px) {
+  .actor-hero__card {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+}
+.actor-hero__image {
+  flex: 0 0 20%;
+  max-width: 500px;
+}
+@media (max-width: 992px) {
+  .actor-hero__image {
+    flex: none;
+    margin-bottom: 3rem;
+    max-width: 400px;
+  }
+}
+@media (max-width: 576px) {
+  .actor-hero__image {
+    max-width: 300px;
+  }
+}
+.actor-hero__img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  display: block;
+}
+.actor-hero__info {
+  flex: 1;
+  padding-right: 5rem;
+  color: #ffffff;
+}
+@media (max-width: 992px) {
+  .actor-hero__info {
+    padding-right: 0;
+  }
+}
+.actor-hero__name {
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  color: #ffffff;
+  line-height: 1.2;
+}
+.actor-hero__age {
+  font-size: 1.8rem;
+  color: #bbbbbb;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+.actor-hero__famous {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  margin-bottom: 3.5rem;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+.actor-hero__famous-label {
+  opacity: 0.85;
+  margin-left: 0.8rem;
+}
+.actor-hero__famous-value {
+  font-weight: 700;
+  color: #e7cf56;
+}
+.actor-hero__bio {
+  font-size: 1.5rem;
+  line-height: 1.9;
+  color: #dddddd;
+  max-width: 900px;
+  margin: 0;
+}
+@media (max-width: 992px) {
+  .actor-hero__bio {
+    font-size: 1.4rem;
+  }
+}
+
+/* ریسپانسیو اضافی */
+@media (max-width: 1200px) {
+  .actor-hero__info {
+    padding-right: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  .actor-hero {
+    padding: 4rem 0 3rem;
+  }
+  .actor-hero__card {
+    padding: 2.5rem 1.5rem;
+  }
+}
 *,
 *::before,
 *::after {
